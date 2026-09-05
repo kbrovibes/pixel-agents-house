@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sprite Sheet — Pixel Agents House</title>
+<style>
+  body { margin: 0; background: #f6f4ef; color: #333; font: 13px/1.4 system-ui, Inter, sans-serif; padding: 16px; }
+  h2 { margin: 18px 0 6px; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: #666; }
+  canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: block; background: #e9e5db; border: 1px solid #d5d0c5; }
+</style>
+</head>
+<body>
+<h2>Characters — 6 palettes × facing × pose (frames animate)</h2>
+<canvas id="chars"></canvas>
+<h2>Chore props (facing down, work pose)</h2>
+<canvas id="props"></canvas>
+<h2>Furniture</h2>
+<canvas id="furn"></canvas>
+<h2>Floor textures</h2>
+<canvas id="floors"></canvas>
+<h2>Walls & doors (right / down edges, indoor / outdoor)</h2>
+<canvas id="walls"></canvas>
+<h2>Particles</h2>
+<canvas id="fx"></canvas>
+<script type="module">
+import * as S from './js/sprites.js';
+const SCALE = 4;
+function setup(id, w, h) {
+  const c = document.getElementById(id);
+  c.width = w; c.height = h; c.style.width = (w * SCALE) + 'px'; c.style.height = (h * SCALE) + 'px';
+  const ctx = c.getContext('2d'); ctx.imageSmoothingEnabled = false;
+  return ctx;
+}
+const clear = (ctx) => { ctx.fillStyle = '#e9e5db'; ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height); };
+const label = (ctx, x, y, t) => { ctx.fillStyle = '#555'; ctx.font = '5px monospace'; ctx.fillText(t, x, y); };
+
+const facings = ['down', 'up', 'left', 'right'];
+const poses = ['walk', 'stand', 'sit', 'think', 'work', 'sleep'];
+const pals = ['Mochi', 'Beans', 'Pixel', 'Nori', 'Tofu', 'Kiwi'].map(S.makePalette);
+
+const cc = setup('chars', 24 * poses.length * facings.length + 8, 26 * pals.length + 26);
+const pc = setup('props', 22 * S.CHORES.length + 8, 40);
+const types = S.FURNITURE_TYPES;
+const cols = 10;
+const cellW = 5 * 16, cellH = 4 * 16 + 8;
+const fc = setup('furn', cols * cellW, Math.ceil(types.length / cols) * cellH);
+const textures = ['wood', 'tile', 'carpet', 'concrete', 'pavers', 'lawn', 'asphalt', 'void', 'roof'];
+const flc = setup('floors', textures.length * 40, 40);
+const kinds = ['wall', 'door', 'double', 'slider', 'garage', 'opening'];
+const wc = setup('walls', kinds.length * 40 + 8, 90);
+const xc = setup('fx', 40 * 10, 40);
+
+let tick = 0;
+const particles = [];
+const fxChores = ['cook', 'grill', 'workbench', 'dishes', 'mow', 'rake', 'vacuum', 'nap', 'water', 'coffee'];
+let last = performance.now();
+
+function frame(now) {
+  const dt = now - last; last = now; tick++;
+  const f = (tick >> 3) & 3;
+
+  clear(cc);
+  pals.forEach((p, pi) => {
+    facings.forEach((fa, fi) => poses.forEach((po, poi) => {
+      const x = 12 + (fi * poses.length + poi) * 24, y = 24 + pi * 26;
+      S.drawCharacter(cc, { x, y, facing: fa, pose: po, frame: f, palette: p, tick, small: pi === pals.length - 1 });
+      if (pi === 0) label(cc, x - 8, y - 20, po[0] + fa[0]);
+    }));
+  });
+
+  clear(pc);
+  S.CHORES.forEach((ch, i) => {
+    const x = 12 + i * 22;
+    S.drawCharacter(pc, { x, y: 28, facing: 'down', pose: 'work', frame: f, chore: ch, palette: pals[i % pals.length], tick });
+    label(pc, x - 9, 37, ch.slice(0, 6));
+  });
+
+  clear(fc);
+  types.forEach((t, i) => {
+    const cx = (i % cols) * cellW, cy = Math.floor(i / cols) * cellH;
+    const item = { type: t, x: cx / 16 + 0.5, y: cy / 16 + 0.5, facing: 'down' };
+    if (t === 'car') item.h = 3;
+    fc.save(); fc.translate(8, 8);
+    // tile background under each item to judge contrast
+    for (let j = 0; j < 4; j++) for (let k = 0; k < 4; k++) S.drawFloorTile(fc, i % 2 ? 'wood' : 'carpet', (cx / 16) + k, (cy / 16) + j);
+    S.drawFurniture(fc, { ...item, x: cx / 16, y: cy / 16 }, tick);
+    S.drawFurnitureFront(fc, { ...item, x: cx / 16, y: cy / 16 }, tick);
+    fc.restore();
+    label(fc, cx + 2, cy + cellH - 2, t);
+  });
+
+  clear(flc);
+  textures.forEach((t, i) => { for (let j = 0; j < 2; j++) for (let k = 0; k < 2; k++) S.drawFloorTile(flc, t, i * 2.5 + k, j); label(flc, i * 40 + 2, 38, t); });
+
+  clear(wc);
+  kinds.forEach((k, i) => {
+    const bx = i * 40 + 8;
+    // draw 2x2 tiles of wood and the edge between them
+    for (let j = 0; j < 2; j++) for (let l = 0; l < 2; l++) S.drawFloorTile(wc, 'wood', (bx / 16) + l, 0.5 + j);
+    wc.save(); wc.translate(bx % 16, 8);
+    S.drawWallEdge(wc, { x: Math.floor(bx / 16), y: 0, dir: 'right', kind: k, indoor: true });
+    S.drawWallEdge(wc, { x: Math.floor(bx / 16), y: 0, dir: 'down', kind: k, indoor: true });
+    wc.restore();
+    wc.save(); wc.translate(bx % 16, 50);
+    for (let j = 0; j < 2; j++) for (let l = 0; l < 2; l++) S.drawFloorTile(wc, 'lawn', Math.floor(bx / 16) + l, j);
+    S.drawWallEdge(wc, { x: Math.floor(bx / 16), y: 0, dir: 'right', kind: k, indoor: false });
+    S.drawWallEdge(wc, { x: Math.floor(bx / 16), y: 0, dir: 'down', kind: k, indoor: false });
+    wc.restore();
+    label(wc, bx, 46, k);
+  });
+
+  clear(xc);
+  fxChores.forEach((ch, i) => {
+    const fx = S.choreFx(ch);
+    const x = i * 40 + 18, y = 32;
+    S.drawCharacter(xc, { x, y, facing: 'down', pose: ch === 'nap' ? 'sleep' : 'work', frame: f, chore: ch, palette: pals[i % pals.length], tick });
+    if (fx && tick % Math.max(1, Math.round(fx.every / 16)) === 0) particles.push(fx.spawn(x, y));
+    label(xc, x - 14, 39, ch);
+  });
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i];
+    p.life += dt; p.x += p.vx * dt / 1000; p.y += p.vy * dt / 1000;
+    if (p.kind === 'spark' || p.kind === 'clip' || p.kind === 'drop') p.vy += 80 * dt / 1000;
+    if (p.life > p.maxLife) particles.splice(i, 1); else S.drawParticle(xc, p);
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

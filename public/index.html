@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Pixel Agents">
+<meta name="theme-color" content="#f4f4f1">
+<title>Pixel Agents House</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='7' width='12' height='8' fill='%23c9a26b'/%3E%3Cpath d='M1 8 8 2l7 6z' fill='%234f6df5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<canvas id="world" aria-label="Pixel Agents House"></canvas>
+
+<div id="chrome">
+  <header id="topbar">
+    <div class="brand">
+      <span class="dot" id="liveDot" title="Disconnected"></span>
+      <h1>Pixel Agents House</h1>
+      <span class="count" id="agentCount">0 agents</span>
+    </div>
+    <div class="clock" id="clock">--:--</div>
+    <div class="actions">
+      <div class="seg" id="floorsSeg" role="group" aria-label="Floors">
+        <button type="button" data-mode="auto" class="on">Auto</button>
+        <button type="button" data-mode="main">Main</button>
+        <button type="button" data-mode="both">Both</button>
+      </div>
+      <button type="button" class="btn" id="btnLabels" title="Room labels (L)">Labels</button>
+      <button type="button" class="btn" id="btnFull" title="Fullscreen (F)">Fullscreen</button>
+      <button type="button" class="btn" id="btnHide" title="Hide UI (H)">Hide UI</button>
+    </div>
+  </header>
+
+  <aside id="roster">
+    <div class="panel-head">
+      <span>Agents</span>
+      <button type="button" id="rosterToggle" class="icon" aria-label="Collapse">&#8963;</button>
+    </div>
+    <ul id="rosterList"></ul>
+    <div class="empty" id="rosterEmpty">No live sessions yet.<br>Start <code>claude</code> in any terminal.</div>
+  </aside>
+
+  <section id="details" hidden></section>
+
+  <div id="toasts" aria-live="polite"></div>
+</div>
+
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>

@@ -661,8 +661,1128 @@
     17,
     6
    ],
-   "furniture": [],
-   "stations": [],
+   "furniture": [
+    {
+     "type": "bookshelf",
+     "x": 3,
+     "y": 8,
+     "w": 2
+    },
+    {
+     "type": "plant",
+     "x": 5,
+     "y": 8
+    },
+    {
+     "type": "painting",
+     "x": 8,
+     "y": 8
+    },
+    {
+     "type": "lamp",
+     "x": 11,
+     "y": 8
+    },
+    {
+     "type": "fireplace",
+     "x": 3,
+     "y": 11,
+     "facing": "right"
+    },
+    {
+     "type": "rug",
+     "x": 4,
+     "y": 10,
+     "w": 5,
+     "h": 5
+    },
+    {
+     "type": "sofa",
+     "x": 4,
+     "y": 13,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "coffee_table",
+     "x": 4,
+     "y": 14
+    },
+    {
+     "type": "tv",
+     "x": 4,
+     "y": 16,
+     "facing": "up"
+    },
+    {
+     "type": "armchair",
+     "x": 8,
+     "y": 13,
+     "facing": "left",
+     "solid": false
+    },
+    {
+     "type": "armchair",
+     "x": 8,
+     "y": 10,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "loveseat",
+     "x": 10,
+     "y": 11,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "plant",
+     "x": 12,
+     "y": 16
+    },
+    {
+     "type": "plant",
+     "x": 3,
+     "y": 16
+    },
+    {
+     "type": "grill",
+     "x": 3,
+     "y": 18,
+     "facing": "right"
+    },
+    {
+     "type": "patio_table",
+     "x": 5,
+     "y": 21
+    },
+    {
+     "type": "patio_chair",
+     "x": 4,
+     "y": 21,
+     "facing": "right",
+     "solid": false
+    },
+    {
+     "type": "patio_chair",
+     "x": 6,
+     "y": 21,
+     "facing": "left",
+     "solid": false
+    },
+    {
+     "type": "plant",
+     "x": 3,
+     "y": 23
+    },
+    {
+     "type": "plant",
+     "x": 7,
+     "y": 23
+    },
+    {
+     "type": "table",
+     "x": 10,
+     "y": 19
+    },
+    {
+     "type": "chair",
+     "x": 10,
+     "y": 18,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "chair",
+     "x": 11,
+     "y": 18,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "chair",
+     "x": 12,
+     "y": 18,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "chair",
+     "x": 10,
+     "y": 21,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "chair",
+     "x": 11,
+     "y": 21,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "chair",
+     "x": 12,
+     "y": 21,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "dresser",
+     "x": 12,
+     "y": 23
+    },
+    {
+     "type": "plant",
+     "x": 9,
+     "y": 23
+    },
+    {
+     "type": "counter",
+     "x": 14,
+     "y": 23
+    },
+    {
+     "type": "sink",
+     "x": 15,
+     "y": 23
+    },
+    {
+     "type": "counter",
+     "x": 16,
+     "y": 23
+    },
+    {
+     "type": "dishwasher",
+     "x": 17,
+     "y": 23
+    },
+    {
+     "type": "stove",
+     "x": 18,
+     "y": 23
+    },
+    {
+     "type": "counter",
+     "x": 19,
+     "y": 23
+    },
+    {
+     "type": "fridge",
+     "x": 20,
+     "y": 23
+    },
+    {
+     "type": "counter",
+     "x": 20,
+     "y": 18
+    },
+    {
+     "type": "counter",
+     "x": 20,
+     "y": 19
+    },
+    {
+     "type": "microwave",
+     "x": 20,
+     "y": 20
+    },
+    {
+     "type": "counter",
+     "x": 20,
+     "y": 21
+    },
+    {
+     "type": "island",
+     "x": 16,
+     "y": 15,
+     "w": 3
+    },
+    {
+     "type": "stool",
+     "x": 16,
+     "y": 16,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "stool",
+     "x": 17,
+     "y": 16,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "stool",
+     "x": 18,
+     "y": 16,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "plant",
+     "x": 20,
+     "y": 11
+    },
+    {
+     "type": "stairs",
+     "x": 12,
+     "y": 6,
+     "w": 7,
+     "h": 4,
+     "facing": "right",
+     "solid": false
+    },
+    {
+     "type": "shelves",
+     "x": 19,
+     "y": 6
+    },
+    {
+     "type": "shelves",
+     "x": 20,
+     "y": 6
+    },
+    {
+     "type": "shelves",
+     "x": 20,
+     "y": 7
+    },
+    {
+     "type": "boxes",
+     "x": 20,
+     "y": 8
+    },
+    {
+     "type": "shelves",
+     "x": 22,
+     "y": 21
+    },
+    {
+     "type": "shelves",
+     "x": 23,
+     "y": 21
+    },
+    {
+     "type": "shelves",
+     "x": 23,
+     "y": 22
+    },
+    {
+     "type": "shelves",
+     "x": 22,
+     "y": 23
+    },
+    {
+     "type": "shelves",
+     "x": 23,
+     "y": 23
+    },
+    {
+     "type": "coat_rack",
+     "x": 23,
+     "y": 13
+    },
+    {
+     "type": "laundry_basket",
+     "x": 21,
+     "y": 13
+    },
+    {
+     "type": "bench",
+     "x": 21,
+     "y": 19,
+     "w": 2,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "shelves",
+     "x": 23,
+     "y": 20
+    },
+    {
+     "type": "boxes",
+     "x": 21,
+     "y": 20
+    },
+    {
+     "type": "painting",
+     "x": 25,
+     "y": 10
+    },
+    {
+     "type": "plant",
+     "x": 29,
+     "y": 12
+    },
+    {
+     "type": "bookshelf",
+     "x": 21,
+     "y": 2
+    },
+    {
+     "type": "desk",
+     "x": 22,
+     "y": 3,
+     "facing": "down"
+    },
+    {
+     "type": "computer",
+     "x": 22,
+     "y": 3
+    },
+    {
+     "type": "office_chair",
+     "x": 22,
+     "y": 4,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "bookshelf",
+     "x": 24,
+     "y": 2,
+     "w": 2
+    },
+    {
+     "type": "rug",
+     "x": 22,
+     "y": 5,
+     "w": 3,
+     "h": 3
+    },
+    {
+     "type": "armchair",
+     "x": 25,
+     "y": 8,
+     "facing": "left",
+     "solid": false
+    },
+    {
+     "type": "plant",
+     "x": 21,
+     "y": 8
+    },
+    {
+     "type": "lamp",
+     "x": 25,
+     "y": 5
+    },
+    {
+     "type": "vanity",
+     "x": 26,
+     "y": 6,
+     "facing": "down"
+    },
+    {
+     "type": "toilet",
+     "x": 29,
+     "y": 6,
+     "facing": "down"
+    },
+    {
+     "type": "mirror",
+     "x": 26,
+     "y": 6
+    },
+    {
+     "type": "plant",
+     "x": 29,
+     "y": 9
+    },
+    {
+     "type": "tub",
+     "x": 26,
+     "y": 2,
+     "w": 2
+    },
+    {
+     "type": "toilet",
+     "x": 29,
+     "y": 2,
+     "facing": "down"
+    },
+    {
+     "type": "vanity",
+     "x": 26,
+     "y": 4,
+     "facing": "right"
+    },
+    {
+     "type": "towel_rack",
+     "x": 28,
+     "y": 2
+    },
+    {
+     "type": "dresser",
+     "x": 32,
+     "y": 2
+    },
+    {
+     "type": "nightstand",
+     "x": 34,
+     "y": 2
+    },
+    {
+     "type": "bed_queen",
+     "x": 35,
+     "y": 2,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "nightstand",
+     "x": 37,
+     "y": 2
+    },
+    {
+     "type": "lamp",
+     "x": 37,
+     "y": 5
+    },
+    {
+     "type": "rug",
+     "x": 32,
+     "y": 5,
+     "w": 2,
+     "h": 2
+    },
+    {
+     "type": "armchair",
+     "x": 33,
+     "y": 7,
+     "facing": "left",
+     "solid": false
+    },
+    {
+     "type": "plant",
+     "x": 37,
+     "y": 8
+    },
+    {
+     "type": "wardrobe",
+     "x": 30,
+     "y": 2
+    },
+    {
+     "type": "dresser",
+     "x": 32,
+     "y": 9
+    },
+    {
+     "type": "lamp",
+     "x": 30,
+     "y": 9
+    },
+    {
+     "type": "plant",
+     "x": 30,
+     "y": 12
+    },
+    {
+     "type": "doormat",
+     "x": 33,
+     "y": 11
+    },
+    {
+     "type": "doormat",
+     "x": 34,
+     "y": 11
+    },
+    {
+     "type": "bench",
+     "x": 35,
+     "y": 9,
+     "w": 2,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "plant",
+     "x": 34,
+     "y": 9
+    },
+    {
+     "type": "patio_chair",
+     "x": 36,
+     "y": 12,
+     "facing": "left",
+     "solid": false
+    },
+    {
+     "type": "workbench",
+     "x": 24,
+     "y": 13,
+     "w": 2,
+     "facing": "down"
+    },
+    {
+     "type": "toolwall",
+     "x": 26,
+     "y": 13
+    },
+    {
+     "type": "shelves",
+     "x": 28,
+     "y": 13
+    },
+    {
+     "type": "shelves",
+     "x": 29,
+     "y": 13
+    },
+    {
+     "type": "furnace",
+     "x": 33,
+     "y": 13
+    },
+    {
+     "type": "water_heater",
+     "x": 34,
+     "y": 13
+    },
+    {
+     "type": "car",
+     "x": 28,
+     "y": 16,
+     "w": 4,
+     "h": 2,
+     "facing": "right"
+    },
+    {
+     "type": "trash_bin",
+     "x": 24,
+     "y": 23
+    },
+    {
+     "type": "recycle_bin",
+     "x": 25,
+     "y": 23
+    },
+    {
+     "type": "mower",
+     "x": 33,
+     "y": 22
+    },
+    {
+     "type": "bike",
+     "x": 31,
+     "y": 23
+    },
+    {
+     "type": "boxes",
+     "x": 34,
+     "y": 23
+    },
+    {
+     "type": "boxes",
+     "x": 24,
+     "y": 20
+    },
+    {
+     "type": "car",
+     "x": 36,
+     "y": 20,
+     "w": 4,
+     "h": 2,
+     "facing": "right"
+    },
+    {
+     "type": "flowerbed",
+     "x": 38,
+     "y": 8,
+     "w": 3
+    },
+    {
+     "type": "bush",
+     "x": 37,
+     "y": 9
+    },
+    {
+     "type": "mailbox",
+     "x": 40,
+     "y": 10
+    },
+    {
+     "type": "bush",
+     "x": 38,
+     "y": 12
+    },
+    {
+     "type": "bush",
+     "x": 40,
+     "y": 12
+    },
+    {
+     "type": "bush",
+     "x": 38,
+     "y": 2
+    },
+    {
+     "type": "tree",
+     "x": 6,
+     "y": 3
+    },
+    {
+     "type": "tree",
+     "x": 15,
+     "y": 2
+    },
+    {
+     "type": "bush",
+     "x": 10,
+     "y": 6
+    },
+    {
+     "type": "flowerbed",
+     "x": 12,
+     "y": 5,
+     "w": 3
+    },
+    {
+     "type": "bush",
+     "x": 3,
+     "y": 0
+    },
+    {
+     "type": "bush",
+     "x": 20,
+     "y": 0
+    },
+    {
+     "type": "bush",
+     "x": 30,
+     "y": 0
+    },
+    {
+     "type": "bush",
+     "x": 11,
+     "y": 7
+    },
+    {
+     "type": "bush",
+     "x": 24,
+     "y": 25
+    },
+    {
+     "type": "tree",
+     "x": 27,
+     "y": 24
+    },
+    {
+     "type": "bush",
+     "x": 31,
+     "y": 25
+    },
+    {
+     "type": "bush",
+     "x": 35,
+     "y": 24
+    },
+    {
+     "type": "tree",
+     "x": 0,
+     "y": 3
+    },
+    {
+     "type": "flowerbed",
+     "x": 0,
+     "y": 10,
+     "w": 3
+    },
+    {
+     "type": "tree",
+     "x": 0,
+     "y": 21
+    },
+    {
+     "type": "bush",
+     "x": 2,
+     "y": 0
+    },
+    {
+     "type": "bush",
+     "x": 2,
+     "y": 25
+    }
+   ],
+   "stations": [
+    {
+     "id": "family-sofa-1",
+     "chore": "tv",
+     "x": 4,
+     "y": 13,
+     "facing": "down"
+    },
+    {
+     "id": "family-sofa-2",
+     "chore": "tv",
+     "x": 5,
+     "y": 13,
+     "facing": "down"
+    },
+    {
+     "id": "family-sofa-3",
+     "chore": "tv",
+     "x": 6,
+     "y": 13,
+     "facing": "down"
+    },
+    {
+     "id": "family-armchair-read",
+     "chore": "read",
+     "x": 8,
+     "y": 13,
+     "facing": "left"
+    },
+    {
+     "id": "family-armchair-phone",
+     "chore": "phone",
+     "x": 8,
+     "y": 10,
+     "facing": "down"
+    },
+    {
+     "id": "family-bookshelf",
+     "chore": "bookshelf",
+     "x": 4,
+     "y": 9,
+     "facing": "up"
+    },
+    {
+     "id": "family-loveseat-1",
+     "chore": "sit",
+     "x": 10,
+     "y": 11,
+     "facing": "down"
+    },
+    {
+     "id": "family-loveseat-2",
+     "chore": "sit",
+     "x": 11,
+     "y": 11,
+     "facing": "down"
+    },
+    {
+     "id": "family-vacuum",
+     "chore": "vacuum",
+     "x": 5,
+     "y": 11,
+     "facing": "down",
+     "area": {
+      "x": 4,
+      "y": 10,
+      "w": 5,
+      "h": 3
+     }
+    },
+    {
+     "id": "patio-grill",
+     "chore": "grill",
+     "x": 4,
+     "y": 18,
+     "facing": "left"
+    },
+    {
+     "id": "patio-coffee",
+     "chore": "coffee",
+     "x": 4,
+     "y": 21,
+     "facing": "right"
+    },
+    {
+     "id": "patio-sit",
+     "chore": "sit",
+     "x": 6,
+     "y": 21,
+     "facing": "left"
+    },
+    {
+     "id": "dining-chair-1",
+     "chore": "sit",
+     "x": 11,
+     "y": 18,
+     "facing": "down"
+    },
+    {
+     "id": "dining-chair-2",
+     "chore": "sit",
+     "x": 11,
+     "y": 21,
+     "facing": "up"
+    },
+    {
+     "id": "dining-coffee",
+     "chore": "coffee",
+     "x": 10,
+     "y": 21,
+     "facing": "up"
+    },
+    {
+     "id": "kitchen-sink",
+     "chore": "dishes",
+     "x": 15,
+     "y": 22,
+     "facing": "down"
+    },
+    {
+     "id": "kitchen-chop",
+     "chore": "chop",
+     "x": 16,
+     "y": 22,
+     "facing": "down"
+    },
+    {
+     "id": "kitchen-stove",
+     "chore": "cook",
+     "x": 18,
+     "y": 22,
+     "facing": "down"
+    },
+    {
+     "id": "kitchen-island-chop",
+     "chore": "chop",
+     "x": 17,
+     "y": 14,
+     "facing": "down"
+    },
+    {
+     "id": "kitchen-stool-1",
+     "chore": "coffee",
+     "x": 16,
+     "y": 16,
+     "facing": "up"
+    },
+    {
+     "id": "kitchen-stool-2",
+     "chore": "coffee",
+     "x": 18,
+     "y": 16,
+     "facing": "up"
+    },
+    {
+     "id": "kitchen-stool-3",
+     "chore": "sit",
+     "x": 17,
+     "y": 16,
+     "facing": "up"
+    },
+    {
+     "id": "kitchen-counter-chop",
+     "chore": "chop",
+     "x": 19,
+     "y": 19,
+     "facing": "right"
+    },
+    {
+     "id": "pantry-shelves",
+     "chore": "pantry",
+     "x": 22,
+     "y": 22,
+     "facing": "right"
+    },
+    {
+     "id": "mud-bench",
+     "chore": "sit",
+     "x": 21,
+     "y": 19,
+     "facing": "up"
+    },
+    {
+     "id": "den-desk",
+     "chore": "desk",
+     "x": 22,
+     "y": 4,
+     "facing": "up"
+    },
+    {
+     "id": "den-bookshelf",
+     "chore": "bookshelf",
+     "x": 24,
+     "y": 3,
+     "facing": "up"
+    },
+    {
+     "id": "den-armchair",
+     "chore": "read",
+     "x": 25,
+     "y": 8,
+     "facing": "left"
+    },
+    {
+     "id": "pwdr-scrub",
+     "chore": "scrub",
+     "x": 26,
+     "y": 7,
+     "facing": "up"
+    },
+    {
+     "id": "gbath-scrub",
+     "chore": "scrub",
+     "x": 27,
+     "y": 4,
+     "facing": "left"
+    },
+    {
+     "id": "guest-nap",
+     "chore": "nap",
+     "x": 35,
+     "y": 3,
+     "facing": "up"
+    },
+    {
+     "id": "guest-makebed",
+     "chore": "makebed",
+     "x": 35,
+     "y": 5,
+     "facing": "up"
+    },
+    {
+     "id": "guest-armchair",
+     "chore": "phone",
+     "x": 33,
+     "y": 7,
+     "facing": "left"
+    },
+    {
+     "id": "porch-coffee",
+     "chore": "coffee",
+     "x": 35,
+     "y": 9,
+     "facing": "down"
+    },
+    {
+     "id": "porch-helper",
+     "chore": "helper",
+     "x": 36,
+     "y": 9,
+     "facing": "down"
+    },
+    {
+     "id": "porch-sit",
+     "chore": "sit",
+     "x": 36,
+     "y": 12,
+     "facing": "left"
+    },
+    {
+     "id": "garage-workbench-1",
+     "chore": "workbench",
+     "x": 24,
+     "y": 14,
+     "facing": "up"
+    },
+    {
+     "id": "garage-workbench-2",
+     "chore": "workbench",
+     "x": 25,
+     "y": 14,
+     "facing": "up"
+    },
+    {
+     "id": "garage-trash",
+     "chore": "trash",
+     "x": 24,
+     "y": 22,
+     "facing": "down"
+    },
+    {
+     "id": "garage-recycle",
+     "chore": "trash",
+     "x": 25,
+     "y": 22,
+     "facing": "down"
+    },
+    {
+     "id": "garage-fix",
+     "chore": "fix",
+     "x": 33,
+     "y": 14,
+     "facing": "up"
+    },
+    {
+     "id": "driveway-washcar",
+     "chore": "washcar",
+     "x": 37,
+     "y": 19,
+     "facing": "down"
+    },
+    {
+     "id": "frontyard-mail",
+     "chore": "mail",
+     "x": 40,
+     "y": 11,
+     "facing": "up"
+    },
+    {
+     "id": "frontyard-helper",
+     "chore": "helper",
+     "x": 39,
+     "y": 11,
+     "facing": "right"
+    },
+    {
+     "id": "frontyard-water",
+     "chore": "water",
+     "x": 39,
+     "y": 9,
+     "facing": "down"
+    },
+    {
+     "id": "frontyard-mow",
+     "chore": "mow",
+     "x": 38,
+     "y": 3,
+     "facing": "right",
+     "area": {
+      "x": 38,
+      "y": 3,
+      "w": 3,
+      "h": 5
+     }
+    },
+    {
+     "id": "sideyard-water",
+     "chore": "water",
+     "x": 13,
+     "y": 4,
+     "facing": "down"
+    },
+    {
+     "id": "sideyard-mow",
+     "chore": "mow",
+     "x": 3,
+     "y": 24,
+     "facing": "right",
+     "area": {
+      "x": 3,
+      "y": 24,
+      "w": 20,
+      "h": 2
+     }
+    },
+    {
+     "id": "backyard-rake",
+     "chore": "rake",
+     "x": 1,
+     "y": 13,
+     "facing": "down",
+     "area": {
+      "x": 0,
+      "y": 12,
+      "w": 3,
+      "h": 8
+     }
+    },
+    {
+     "id": "backyard-water",
+     "chore": "water",
+     "x": 1,
+     "y": 11,
+     "facing": "up"
+    }
+   ],
    "spawn": [
     41,
     11
@@ -1092,8 +2212,891 @@
     13,
     6
    ],
-   "furniture": [],
-   "stations": []
+   "furniture": [
+    {
+     "type": "nightstand",
+     "x": 3,
+     "y": 5
+    },
+    {
+     "type": "bed_king",
+     "x": 4,
+     "y": 5,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "nightstand",
+     "x": 7,
+     "y": 5
+    },
+    {
+     "type": "dresser",
+     "x": 10,
+     "y": 5
+    },
+    {
+     "type": "lamp",
+     "x": 12,
+     "y": 5
+    },
+    {
+     "type": "rug",
+     "x": 4,
+     "y": 9,
+     "w": 4,
+     "h": 3
+    },
+    {
+     "type": "armchair",
+     "x": 11,
+     "y": 13,
+     "facing": "left",
+     "solid": false
+    },
+    {
+     "type": "armchair",
+     "x": 3,
+     "y": 13,
+     "facing": "right",
+     "solid": false
+    },
+    {
+     "type": "plant",
+     "x": 12,
+     "y": 13
+    },
+    {
+     "type": "painting",
+     "x": 9,
+     "y": 5
+    },
+    {
+     "type": "plant",
+     "x": 12,
+     "y": 14
+    },
+    {
+     "type": "mirror",
+     "x": 12,
+     "y": 16
+    },
+    {
+     "type": "vanity",
+     "x": 3,
+     "y": 14,
+     "facing": "down"
+    },
+    {
+     "type": "vanity",
+     "x": 4,
+     "y": 14,
+     "facing": "down"
+    },
+    {
+     "type": "mirror",
+     "x": 3,
+     "y": 14
+    },
+    {
+     "type": "mirror",
+     "x": 4,
+     "y": 14
+    },
+    {
+     "type": "vanity",
+     "x": 6,
+     "y": 14,
+     "facing": "down"
+    },
+    {
+     "type": "vanity",
+     "x": 7,
+     "y": 14,
+     "facing": "down"
+    },
+    {
+     "type": "mirror",
+     "x": 6,
+     "y": 14
+    },
+    {
+     "type": "mirror",
+     "x": 7,
+     "y": 14
+    },
+    {
+     "type": "toilet",
+     "x": 9,
+     "y": 18,
+     "facing": "left"
+    },
+    {
+     "type": "tub",
+     "x": 3,
+     "y": 23,
+     "w": 2,
+     "facing": "up"
+    },
+    {
+     "type": "shower",
+     "x": 9,
+     "y": 23
+    },
+    {
+     "type": "towel_rack",
+     "x": 9,
+     "y": 21
+    },
+    {
+     "type": "plant",
+     "x": 6,
+     "y": 23
+    },
+    {
+     "type": "closet",
+     "x": 12,
+     "y": 17,
+     "w": 5
+    },
+    {
+     "type": "closet",
+     "x": 10,
+     "y": 23,
+     "w": 4
+    },
+    {
+     "type": "dresser",
+     "x": 15,
+     "y": 21
+    },
+    {
+     "type": "wardrobe",
+     "x": 16,
+     "y": 19
+    },
+    {
+     "type": "laundry_basket",
+     "x": 10,
+     "y": 20
+    },
+    {
+     "type": "washer",
+     "x": 15,
+     "y": 14
+    },
+    {
+     "type": "dryer",
+     "x": 16,
+     "y": 14
+    },
+    {
+     "type": "laundry_basket",
+     "x": 13,
+     "y": 16
+    },
+    {
+     "type": "shelves",
+     "x": 16,
+     "y": 16
+    },
+    {
+     "type": "shelves",
+     "x": 13,
+     "y": 14
+    },
+    {
+     "type": "rug",
+     "x": 21,
+     "y": 11,
+     "w": 6,
+     "h": 2
+    },
+    {
+     "type": "bookshelf",
+     "x": 26,
+     "y": 10
+    },
+    {
+     "type": "plant",
+     "x": 29,
+     "y": 10
+    },
+    {
+     "type": "painting",
+     "x": 16,
+     "y": 10
+    },
+    {
+     "type": "plant",
+     "x": 29,
+     "y": 13
+    },
+    {
+     "type": "railing",
+     "x": 30,
+     "y": 10,
+     "h": 4
+    },
+    {
+     "type": "railing",
+     "x": 34,
+     "y": 10,
+     "h": 4
+    },
+    {
+     "type": "railing",
+     "x": 31,
+     "y": 13,
+     "w": 3
+    },
+    {
+     "type": "stairs",
+     "x": 13,
+     "y": 6,
+     "w": 8,
+     "h": 4,
+     "facing": "left",
+     "solid": false
+    },
+    {
+     "type": "nightstand",
+     "x": 20,
+     "y": 17
+    },
+    {
+     "type": "bed_single",
+     "x": 21,
+     "y": 17,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "desk",
+     "x": 17,
+     "y": 23,
+     "facing": "up"
+    },
+    {
+     "type": "computer",
+     "x": 17,
+     "y": 23
+    },
+    {
+     "type": "office_chair",
+     "x": 17,
+     "y": 22,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "bookshelf",
+     "x": 22,
+     "y": 23
+    },
+    {
+     "type": "wardrobe",
+     "x": 19,
+     "y": 23
+    },
+    {
+     "type": "rug",
+     "x": 18,
+     "y": 19,
+     "w": 2,
+     "h": 2
+    },
+    {
+     "type": "beanbag",
+     "x": 20,
+     "y": 21,
+     "solid": false
+    },
+    {
+     "type": "lamp",
+     "x": 22,
+     "y": 20
+    },
+    {
+     "type": "vanity",
+     "x": 19,
+     "y": 14,
+     "facing": "down"
+    },
+    {
+     "type": "mirror",
+     "x": 19,
+     "y": 14
+    },
+    {
+     "type": "toilet",
+     "x": 22,
+     "y": 14,
+     "facing": "down"
+    },
+    {
+     "type": "shower",
+     "x": 22,
+     "y": 16
+    },
+    {
+     "type": "shelves",
+     "x": 24,
+     "y": 14
+    },
+    {
+     "type": "furnace",
+     "x": 24,
+     "y": 15
+    },
+    {
+     "type": "water_heater",
+     "x": 24,
+     "y": 16
+    },
+    {
+     "type": "toilet",
+     "x": 23,
+     "y": 17,
+     "facing": "down"
+    },
+    {
+     "type": "vanity",
+     "x": 23,
+     "y": 19,
+     "facing": "right"
+    },
+    {
+     "type": "mirror",
+     "x": 23,
+     "y": 19
+    },
+    {
+     "type": "tub",
+     "x": 23,
+     "y": 22,
+     "w": 2,
+     "facing": "up"
+    },
+    {
+     "type": "towel_rack",
+     "x": 25,
+     "y": 23
+    },
+    {
+     "type": "bed_queen",
+     "x": 21,
+     "y": 2,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "nightstand",
+     "x": 23,
+     "y": 2
+    },
+    {
+     "type": "bookshelf",
+     "x": 25,
+     "y": 2
+    },
+    {
+     "type": "desk",
+     "x": 26,
+     "y": 2,
+     "facing": "down"
+    },
+    {
+     "type": "computer",
+     "x": 26,
+     "y": 2
+    },
+    {
+     "type": "office_chair",
+     "x": 26,
+     "y": 3,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "wardrobe",
+     "x": 27,
+     "y": 8
+    },
+    {
+     "type": "rug",
+     "x": 22,
+     "y": 6,
+     "w": 3,
+     "h": 2
+    },
+    {
+     "type": "beanbag",
+     "x": 21,
+     "y": 8,
+     "solid": false
+    },
+    {
+     "type": "lamp",
+     "x": 27,
+     "y": 5
+    },
+    {
+     "type": "wardrobe",
+     "x": 28,
+     "y": 2
+    },
+    {
+     "type": "dresser",
+     "x": 28,
+     "y": 4
+    },
+    {
+     "type": "desk",
+     "x": 30,
+     "y": 2,
+     "facing": "down"
+    },
+    {
+     "type": "computer",
+     "x": 30,
+     "y": 2
+    },
+    {
+     "type": "office_chair",
+     "x": 30,
+     "y": 3,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "bookshelf",
+     "x": 32,
+     "y": 2
+    },
+    {
+     "type": "nightstand",
+     "x": 34,
+     "y": 2
+    },
+    {
+     "type": "bed_queen",
+     "x": 35,
+     "y": 2,
+     "facing": "up",
+     "solid": false
+    },
+    {
+     "type": "nightstand",
+     "x": 37,
+     "y": 2
+    },
+    {
+     "type": "rug",
+     "x": 32,
+     "y": 5,
+     "w": 3,
+     "h": 3
+    },
+    {
+     "type": "armchair",
+     "x": 37,
+     "y": 8,
+     "facing": "left",
+     "solid": false
+    },
+    {
+     "type": "beanbag",
+     "x": 33,
+     "y": 8,
+     "solid": false
+    },
+    {
+     "type": "lamp",
+     "x": 37,
+     "y": 5
+    },
+    {
+     "type": "plant",
+     "x": 30,
+     "y": 9
+    },
+    {
+     "type": "tv",
+     "x": 30,
+     "y": 23,
+     "facing": "up"
+    },
+    {
+     "type": "sofa",
+     "x": 27,
+     "y": 21,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "sofa",
+     "x": 31,
+     "y": 21,
+     "facing": "down",
+     "solid": false
+    },
+    {
+     "type": "pool_table",
+     "x": 28,
+     "y": 16
+    },
+    {
+     "type": "beanbag",
+     "x": 35,
+     "y": 15,
+     "solid": false
+    },
+    {
+     "type": "beanbag",
+     "x": 36,
+     "y": 15,
+     "solid": false
+    },
+    {
+     "type": "bookshelf",
+     "x": 32,
+     "y": 14,
+     "w": 2
+    },
+    {
+     "type": "rug",
+     "x": 27,
+     "y": 18,
+     "w": 6,
+     "h": 2
+    },
+    {
+     "type": "plant",
+     "x": 37,
+     "y": 23
+    },
+    {
+     "type": "lamp",
+     "x": 26,
+     "y": 23
+    },
+    {
+     "type": "plant",
+     "x": 26,
+     "y": 14
+    },
+    {
+     "type": "plant",
+     "x": 37,
+     "y": 10
+    },
+    {
+     "type": "beanbag",
+     "x": 36,
+     "y": 12,
+     "solid": false
+    },
+    {
+     "type": "painting",
+     "x": 35,
+     "y": 14
+    }
+   ],
+   "stations": [
+    {
+     "id": "msuite-nap",
+     "chore": "nap",
+     "x": 5,
+     "y": 6,
+     "facing": "up"
+    },
+    {
+     "id": "msuite-makebed",
+     "chore": "makebed",
+     "x": 5,
+     "y": 8,
+     "facing": "up"
+    },
+    {
+     "id": "msuite-armchair-read",
+     "chore": "read",
+     "x": 11,
+     "y": 13,
+     "facing": "left"
+    },
+    {
+     "id": "msuite-armchair-phone",
+     "chore": "phone",
+     "x": 3,
+     "y": 13,
+     "facing": "right"
+    },
+    {
+     "id": "mbath-scrub-1",
+     "chore": "scrub",
+     "x": 3,
+     "y": 15,
+     "facing": "up"
+    },
+    {
+     "id": "mbath-scrub-2",
+     "chore": "scrub",
+     "x": 6,
+     "y": 15,
+     "facing": "up"
+    },
+    {
+     "id": "mbath-tub-scrub",
+     "chore": "scrub",
+     "x": 3,
+     "y": 22,
+     "facing": "down"
+    },
+    {
+     "id": "wic-fold",
+     "chore": "fold",
+     "x": 15,
+     "y": 22,
+     "facing": "up"
+    },
+    {
+     "id": "laundry-washer",
+     "chore": "laundry",
+     "x": 15,
+     "y": 15,
+     "facing": "up"
+    },
+    {
+     "id": "laundry-fold",
+     "chore": "fold",
+     "x": 16,
+     "y": 15,
+     "facing": "up"
+    },
+    {
+     "id": "uhall-bookshelf",
+     "chore": "bookshelf",
+     "x": 26,
+     "y": 11,
+     "facing": "up"
+    },
+    {
+     "id": "uhall-vacuum",
+     "chore": "vacuum",
+     "x": 22,
+     "y": 11,
+     "facing": "right",
+     "area": {
+      "x": 21,
+      "y": 11,
+      "w": 6,
+      "h": 2
+     }
+    },
+    {
+     "id": "bdrm2-nap",
+     "chore": "nap",
+     "x": 21,
+     "y": 18,
+     "facing": "up"
+    },
+    {
+     "id": "bdrm2-makebed",
+     "chore": "makebed",
+     "x": 21,
+     "y": 20,
+     "facing": "up"
+    },
+    {
+     "id": "bdrm2-desk",
+     "chore": "desk",
+     "x": 17,
+     "y": 22,
+     "facing": "down"
+    },
+    {
+     "id": "bdrm2-read",
+     "chore": "read",
+     "x": 20,
+     "y": 21,
+     "facing": "down"
+    },
+    {
+     "id": "bath2-scrub",
+     "chore": "scrub",
+     "x": 19,
+     "y": 15,
+     "facing": "up"
+    },
+    {
+     "id": "mech-fix",
+     "chore": "fix",
+     "x": 23,
+     "y": 15,
+     "facing": "right"
+    },
+    {
+     "id": "hallbath-scrub",
+     "chore": "scrub",
+     "x": 24,
+     "y": 19,
+     "facing": "left"
+    },
+    {
+     "id": "bdrm3-nap",
+     "chore": "nap",
+     "x": 21,
+     "y": 3,
+     "facing": "up"
+    },
+    {
+     "id": "bdrm3-makebed",
+     "chore": "makebed",
+     "x": 21,
+     "y": 5,
+     "facing": "up"
+    },
+    {
+     "id": "bdrm3-desk",
+     "chore": "desk",
+     "x": 26,
+     "y": 3,
+     "facing": "up"
+    },
+    {
+     "id": "bdrm3-read",
+     "chore": "read",
+     "x": 21,
+     "y": 8,
+     "facing": "right"
+    },
+    {
+     "id": "bdrm4-nap",
+     "chore": "nap",
+     "x": 35,
+     "y": 3,
+     "facing": "up"
+    },
+    {
+     "id": "bdrm4-makebed",
+     "chore": "makebed",
+     "x": 35,
+     "y": 5,
+     "facing": "up"
+    },
+    {
+     "id": "bdrm4-desk",
+     "chore": "desk",
+     "x": 30,
+     "y": 3,
+     "facing": "up"
+    },
+    {
+     "id": "bdrm4-read",
+     "chore": "read",
+     "x": 37,
+     "y": 8,
+     "facing": "left"
+    },
+    {
+     "id": "bdrm4-phone",
+     "chore": "phone",
+     "x": 33,
+     "y": 8,
+     "facing": "down"
+    },
+    {
+     "id": "rec-sofa-1",
+     "chore": "tv",
+     "x": 27,
+     "y": 21,
+     "facing": "down"
+    },
+    {
+     "id": "rec-sofa-2",
+     "chore": "tv",
+     "x": 28,
+     "y": 21,
+     "facing": "down"
+    },
+    {
+     "id": "rec-sofa-3",
+     "chore": "tv",
+     "x": 31,
+     "y": 21,
+     "facing": "down"
+    },
+    {
+     "id": "rec-sofa-4",
+     "chore": "tv",
+     "x": 32,
+     "y": 21,
+     "facing": "down"
+    },
+    {
+     "id": "rec-sofa-sit-1",
+     "chore": "sit",
+     "x": 29,
+     "y": 21,
+     "facing": "down"
+    },
+    {
+     "id": "rec-sofa-sit-2",
+     "chore": "sit",
+     "x": 33,
+     "y": 21,
+     "facing": "down"
+    },
+    {
+     "id": "rec-pool-1",
+     "chore": "pool",
+     "x": 29,
+     "y": 15,
+     "facing": "down"
+    },
+    {
+     "id": "rec-pool-2",
+     "chore": "pool",
+     "x": 29,
+     "y": 18,
+     "facing": "up"
+    },
+    {
+     "id": "rec-beanbag-1",
+     "chore": "phone",
+     "x": 35,
+     "y": 15,
+     "facing": "down"
+    },
+    {
+     "id": "rec-beanbag-2",
+     "chore": "phone",
+     "x": 36,
+     "y": 15,
+     "facing": "down"
+    },
+    {
+     "id": "rec-loft-beanbag",
+     "chore": "phone",
+     "x": 36,
+     "y": 12,
+     "facing": "down"
+    },
+    {
+     "id": "rec-vacuum",
+     "chore": "vacuum",
+     "x": 27,
+     "y": 19,
+     "facing": "right",
+     "area": {
+      "x": 27,
+      "y": 18,
+      "w": 6,
+      "h": 2
+     }
+    }
+   ]
   }
  ]
 }
