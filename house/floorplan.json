@@ -1,0 +1,1099 @@
+{
+ "name": "Greenville 4868B",
+ "tile": 16,
+ "width": 43,
+ "height": 26,
+ "feetPerTile": 2,
+ "floors": [
+  {
+   "id": "main",
+   "name": "Main Floor",
+   "outside": "lawn",
+   "rooms": [
+    {
+     "id": "street",
+     "name": "Street",
+     "kind": "outdoor",
+     "floor": "asphalt",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 42,
+       "y": 0,
+       "w": 1,
+       "h": 26
+      }
+     ]
+    },
+    {
+     "id": "sidewalk",
+     "name": "Sidewalk",
+     "kind": "outdoor",
+     "floor": "pavers",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 41,
+       "y": 0,
+       "w": 1,
+       "h": 26
+      }
+     ]
+    },
+    {
+     "id": "driveway",
+     "name": "Driveway",
+     "kind": "outdoor",
+     "floor": "concrete",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 35,
+       "y": 13,
+       "w": 6,
+       "h": 11
+      }
+     ]
+    },
+    {
+     "id": "path",
+     "name": "Path",
+     "kind": "outdoor",
+     "floor": "pavers",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 37,
+       "y": 11,
+       "w": 4,
+       "h": 1
+      }
+     ]
+    },
+    {
+     "id": "backyard",
+     "name": "Backyard",
+     "kind": "outdoor",
+     "floor": "lawn",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 0,
+       "y": 0,
+       "w": 3,
+       "h": 26
+      }
+     ]
+    },
+    {
+     "id": "frontyard",
+     "name": "Front Yard",
+     "kind": "outdoor",
+     "floor": "lawn",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 37,
+       "y": 2,
+       "w": 4,
+       "h": 9
+      },
+      {
+       "x": 37,
+       "y": 12,
+       "w": 4,
+       "h": 1
+      }
+     ]
+    },
+    {
+     "id": "sideyard",
+     "name": "Side Yard",
+     "kind": "outdoor",
+     "floor": "lawn",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 3,
+       "y": 2,
+       "w": 9,
+       "h": 6
+      },
+      {
+       "x": 12,
+       "y": 2,
+       "w": 9,
+       "h": 4
+      },
+      {
+       "x": 3,
+       "y": 0,
+       "w": 35,
+       "h": 2
+      },
+      {
+       "x": 3,
+       "y": 24,
+       "w": 35,
+       "h": 2
+      }
+     ]
+    },
+    {
+     "id": "patio",
+     "name": "Cov. Patio",
+     "kind": "outdoor",
+     "floor": "pavers",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 3,
+       "y": 17,
+       "w": 6,
+       "h": 7
+      }
+     ]
+    },
+    {
+     "id": "porch",
+     "name": "Porch",
+     "kind": "outdoor",
+     "floor": "pavers",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 34,
+       "y": 9,
+       "w": 3,
+       "h": 4
+      }
+     ]
+    },
+    {
+     "id": "family",
+     "name": "Family Room",
+     "kind": "indoor",
+     "floor": "wood",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 3,
+       "y": 8,
+       "w": 9,
+       "h": 9
+      },
+      {
+       "x": 12,
+       "y": 10,
+       "w": 2,
+       "h": 7
+      }
+     ]
+    },
+    {
+     "id": "dining",
+     "name": "Dining",
+     "kind": "indoor",
+     "floor": "wood",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 9,
+       "y": 17,
+       "w": 5,
+       "h": 7
+      }
+     ]
+    },
+    {
+     "id": "kitchen",
+     "name": "Kitchen",
+     "kind": "indoor",
+     "floor": "wood",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 14,
+       "y": 10,
+       "w": 7,
+       "h": 14
+      }
+     ]
+    },
+    {
+     "id": "stairs",
+     "name": "Stairs",
+     "kind": "indoor",
+     "floor": "wood",
+     "stairs": true,
+     "rects": [
+      {
+       "x": 12,
+       "y": 6,
+       "w": 7,
+       "h": 4
+      }
+     ]
+    },
+    {
+     "id": "storage",
+     "name": "Storage",
+     "kind": "indoor",
+     "floor": "tile",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 19,
+       "y": 6,
+       "w": 2,
+       "h": 4
+      }
+     ]
+    },
+    {
+     "id": "pantry",
+     "name": "Pantry",
+     "kind": "indoor",
+     "floor": "tile",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 21,
+       "y": 21,
+       "w": 3,
+       "h": 3
+      }
+     ]
+    },
+    {
+     "id": "mud",
+     "name": "Mud Room",
+     "kind": "indoor",
+     "floor": "tile",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 21,
+       "y": 13,
+       "w": 3,
+       "h": 8
+      }
+     ]
+    },
+    {
+     "id": "hall",
+     "name": "Hall",
+     "kind": "indoor",
+     "floor": "wood",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 21,
+       "y": 10,
+       "w": 9,
+       "h": 3
+      }
+     ]
+    },
+    {
+     "id": "den",
+     "name": "Den",
+     "kind": "indoor",
+     "floor": "carpet",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 21,
+       "y": 2,
+       "w": 5,
+       "h": 8
+      }
+     ]
+    },
+    {
+     "id": "pwdr",
+     "name": "Powder Rm",
+     "kind": "indoor",
+     "floor": "tile",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 26,
+       "y": 6,
+       "w": 4,
+       "h": 4
+      }
+     ]
+    },
+    {
+     "id": "gbath",
+     "name": "Guest Bath",
+     "kind": "indoor",
+     "floor": "tile",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 26,
+       "y": 2,
+       "w": 4,
+       "h": 4
+      }
+     ]
+    },
+    {
+     "id": "garage",
+     "name": "2-Car Garage",
+     "kind": "indoor",
+     "floor": "concrete",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 24,
+       "y": 13,
+       "w": 11,
+       "h": 11
+      }
+     ]
+    },
+    {
+     "id": "entry",
+     "name": "Entry",
+     "kind": "indoor",
+     "floor": "wood",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 30,
+       "y": 9,
+       "w": 4,
+       "h": 4
+      }
+     ]
+    },
+    {
+     "id": "guest",
+     "name": "Guest Suite",
+     "kind": "indoor",
+     "floor": "carpet",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 30,
+       "y": 2,
+       "w": 8,
+       "h": 7
+      }
+     ]
+    }
+   ],
+   "open": [
+    [
+     "family",
+     "dining"
+    ],
+    [
+     "family",
+     "kitchen"
+    ],
+    [
+     "dining",
+     "kitchen"
+    ],
+    [
+     "kitchen",
+     "hall"
+    ],
+    [
+     "hall",
+     "entry"
+    ],
+    [
+     "patio",
+     "backyard"
+    ],
+    [
+     "patio",
+     "sideyard"
+    ],
+    [
+     "porch",
+     "frontyard"
+    ],
+    [
+     "porch",
+     "path"
+    ]
+   ],
+   "doors": [
+    {
+     "a": [
+      6,
+      17
+     ],
+     "b": [
+      6,
+      16
+     ],
+     "kind": "slider"
+    },
+    {
+     "a": [
+      8,
+      20
+     ],
+     "b": [
+      9,
+      20
+     ],
+     "kind": "slider"
+    },
+    {
+     "a": [
+      13,
+      10
+     ],
+     "b": [
+      13,
+      9
+     ],
+     "kind": "opening"
+    },
+    {
+     "a": [
+      14,
+      10
+     ],
+     "b": [
+      14,
+      9
+     ],
+     "kind": "opening"
+    },
+    {
+     "a": [
+      15,
+      10
+     ],
+     "b": [
+      15,
+      9
+     ],
+     "kind": "opening"
+    },
+    {
+     "a": [
+      19,
+      10
+     ],
+     "b": [
+      19,
+      9
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      20,
+      22
+     ],
+     "b": [
+      21,
+      22
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      20,
+      16
+     ],
+     "b": [
+      21,
+      16
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      22,
+      13
+     ],
+     "b": [
+      22,
+      12
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      23,
+      18
+     ],
+     "b": [
+      24,
+      18
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      22,
+      10
+     ],
+     "b": [
+      22,
+      9
+     ],
+     "kind": "double"
+    },
+    {
+     "a": [
+      23,
+      10
+     ],
+     "b": [
+      23,
+      9
+     ],
+     "kind": "double"
+    },
+    {
+     "a": [
+      27,
+      10
+     ],
+     "b": [
+      27,
+      9
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      27,
+      6
+     ],
+     "b": [
+      27,
+      5
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      29,
+      4
+     ],
+     "b": [
+      30,
+      4
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      31,
+      9
+     ],
+     "b": [
+      31,
+      8
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      33,
+      11
+     ],
+     "b": [
+      34,
+      11
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      34,
+      20
+     ],
+     "b": [
+      35,
+      20
+     ],
+     "kind": "garage"
+    },
+    {
+     "a": [
+      34,
+      19
+     ],
+     "b": [
+      35,
+      19
+     ],
+     "kind": "garage"
+    },
+    {
+     "a": [
+      34,
+      17
+     ],
+     "b": [
+      35,
+      17
+     ],
+     "kind": "garage"
+    },
+    {
+     "a": [
+      34,
+      16
+     ],
+     "b": [
+      35,
+      16
+     ],
+     "kind": "garage"
+    }
+   ],
+   "stairTransfer": [
+    17,
+    6
+   ],
+   "furniture": [],
+   "stations": [],
+   "spawn": [
+    41,
+    11
+   ],
+   "frontDoor": [
+    34,
+    11
+   ]
+  },
+  {
+   "id": "upper",
+   "name": "Upper Floor",
+   "outside": "roof",
+   "rooms": [
+    {
+     "id": "mbath",
+     "name": "M. Bath",
+     "kind": "indoor",
+     "floor": "tile",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 3,
+       "y": 14,
+       "w": 7,
+       "h": 10
+      }
+     ]
+    },
+    {
+     "id": "msuite",
+     "name": "M. Suite",
+     "kind": "indoor",
+     "floor": "carpet",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 3,
+       "y": 5,
+       "w": 10,
+       "h": 9
+      }
+     ]
+    },
+    {
+     "id": "mvest",
+     "name": "Vestibule",
+     "kind": "indoor",
+     "floor": "carpet",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 10,
+       "y": 14,
+       "w": 3,
+       "h": 3
+      }
+     ]
+    },
+    {
+     "id": "wic",
+     "name": "M. WIC",
+     "kind": "indoor",
+     "floor": "carpet",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 10,
+       "y": 17,
+       "w": 7,
+       "h": 7
+      }
+     ]
+    },
+    {
+     "id": "laundry",
+     "name": "Laundry",
+     "kind": "indoor",
+     "floor": "tile",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 13,
+       "y": 14,
+       "w": 4,
+       "h": 3
+      }
+     ]
+    },
+    {
+     "id": "uhall",
+     "name": "Upper Hall",
+     "kind": "indoor",
+     "floor": "wood",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 13,
+       "y": 10,
+       "w": 17,
+       "h": 4
+      },
+      {
+       "x": 17,
+       "y": 14,
+       "w": 2,
+       "h": 3
+      },
+      {
+       "x": 25,
+       "y": 14,
+       "w": 2,
+       "h": 3
+      },
+      {
+       "x": 28,
+       "y": 8,
+       "w": 2,
+       "h": 2
+      }
+     ]
+    },
+    {
+     "id": "ustairs",
+     "name": "Stairs",
+     "kind": "indoor",
+     "floor": "wood",
+     "stairs": true,
+     "rects": [
+      {
+       "x": 13,
+       "y": 6,
+       "w": 8,
+       "h": 4
+      }
+     ]
+    },
+    {
+     "id": "bdrm2",
+     "name": "Bedroom 2",
+     "kind": "indoor",
+     "floor": "carpet",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 17,
+       "y": 17,
+       "w": 6,
+       "h": 7
+      }
+     ]
+    },
+    {
+     "id": "bath2",
+     "name": "Bath",
+     "kind": "indoor",
+     "floor": "tile",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 19,
+       "y": 14,
+       "w": 4,
+       "h": 3
+      }
+     ]
+    },
+    {
+     "id": "mech",
+     "name": "Mech",
+     "kind": "indoor",
+     "floor": "concrete",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 23,
+       "y": 14,
+       "w": 2,
+       "h": 3
+      }
+     ]
+    },
+    {
+     "id": "hallbath",
+     "name": "Hall Bath",
+     "kind": "indoor",
+     "floor": "tile",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 23,
+       "y": 17,
+       "w": 3,
+       "h": 7
+      }
+     ]
+    },
+    {
+     "id": "bdrm3",
+     "name": "Bedroom 3",
+     "kind": "indoor",
+     "floor": "carpet",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 21,
+       "y": 2,
+       "w": 7,
+       "h": 8
+      }
+     ]
+    },
+    {
+     "id": "rec",
+     "name": "Rec Room",
+     "kind": "indoor",
+     "floor": "carpet",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 26,
+       "y": 14,
+       "w": 12,
+       "h": 10
+      },
+      {
+       "x": 35,
+       "y": 10,
+       "w": 3,
+       "h": 4
+      }
+     ]
+    },
+    {
+     "id": "openbelow",
+     "name": "Open Below",
+     "kind": "void",
+     "floor": "void",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 30,
+       "y": 10,
+       "w": 5,
+       "h": 4
+      }
+     ]
+    },
+    {
+     "id": "bdrm4",
+     "name": "Bedroom 4",
+     "kind": "indoor",
+     "floor": "carpet",
+     "stairs": false,
+     "rects": [
+      {
+       "x": 28,
+       "y": 2,
+       "w": 2,
+       "h": 6
+      },
+      {
+       "x": 30,
+       "y": 2,
+       "w": 8,
+       "h": 8
+      }
+     ]
+    }
+   ],
+   "open": [
+    [
+     "msuite",
+     "mvest"
+    ],
+    [
+     "uhall",
+     "rec"
+    ]
+   ],
+   "doors": [
+    {
+     "a": [
+      11,
+      16
+     ],
+     "b": [
+      11,
+      17
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      10,
+      15
+     ],
+     "b": [
+      9,
+      15
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      13,
+      11
+     ],
+     "b": [
+      12,
+      11
+     ],
+     "kind": "double"
+    },
+    {
+     "a": [
+      13,
+      10
+     ],
+     "b": [
+      12,
+      10
+     ],
+     "kind": "double"
+    },
+    {
+     "a": [
+      14,
+      13
+     ],
+     "b": [
+      14,
+      14
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      19,
+      10
+     ],
+     "b": [
+      19,
+      9
+     ],
+     "kind": "opening"
+    },
+    {
+     "a": [
+      20,
+      10
+     ],
+     "b": [
+      20,
+      9
+     ],
+     "kind": "opening"
+    },
+    {
+     "a": [
+      17,
+      16
+     ],
+     "b": [
+      17,
+      17
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      20,
+      13
+     ],
+     "b": [
+      20,
+      14
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      23,
+      13
+     ],
+     "b": [
+      23,
+      14
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      25,
+      16
+     ],
+     "b": [
+      25,
+      17
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      24,
+      10
+     ],
+     "b": [
+      24,
+      9
+     ],
+     "kind": "door"
+    },
+    {
+     "a": [
+      28,
+      8
+     ],
+     "b": [
+      28,
+      7
+     ],
+     "kind": "door"
+    }
+   ],
+   "stairTransfer": [
+    13,
+    6
+   ],
+   "furniture": [],
+   "stations": []
+  }
+ ]
+}
