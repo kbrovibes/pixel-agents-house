@@ -7,7 +7,7 @@ import { connect } from './net.js';
 const params = new URLSearchParams(location.search);
 
 async function boot() {
-  const plan = await (await fetch('/api/floorplan')).json();
+  const plan = await (await fetch('api/floorplan.json')).json();
   const world = buildWorld(plan);
   const canvas = document.getElementById('world');
   const renderer = createRenderer(canvas, world);
@@ -27,12 +27,23 @@ async function boot() {
   manager.on('arrive', (a) => ui.toast(`${a.info.name} arrived (${a.info.project})`));
   manager.on('leave', (a) => ui.toast(`${a.info.name} left`));
 
-  connect({
-    onHello: (msg) => { manager.config = msg.config || {}; },
-    onSnapshot: (list) => manager.applySnapshot(list),
-    onUpdate: (list, removed) => manager.applyUpdate(list, removed),
-    onStatus: (ok) => ui.setConnected(ok),
-  });
+  if (params.has('demo')) {
+    // in-browser simulation: no server needed (used by the GitHub Pages demo)
+    const { createDemoWatcher } = await import('./sim/demo.js');
+    const sim = createDemoWatcher({ count: Number(params.get('demo')) || 8, fast: params.get('fast') === '1' });
+    sim.on('change', (changed, removed) => manager.applyUpdate(changed, removed));
+    sim.start();
+    manager.config = { napAfterMin: 8 };
+    manager.applySnapshot(sim.getAgents());
+    ui.setConnected(true);
+  } else {
+    connect({
+      onHello: (msg) => { manager.config = msg.config || {}; },
+      onSnapshot: (list) => manager.applySnapshot(list),
+      onUpdate: (list, removed) => manager.applyUpdate(list, removed),
+      onStatus: (ok) => ui.setConnected(ok),
+    });
+  }
 
   // kiosk: hide chrome until the pointer moves, re-hide after a pause
   let hideTimer = null;

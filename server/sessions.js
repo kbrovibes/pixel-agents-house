@@ -3,7 +3,7 @@ import fsp from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import chokidar from 'chokidar';
-import { nameFor } from './names.js';
+import { nameFor } from '../public/js/sim/names.js';
 
 const SEED_TAIL_BYTES = 512 * 1024;
 const TOOL_RESULT_DEBOUNCE_MS = 3000;

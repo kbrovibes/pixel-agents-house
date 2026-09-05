@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixel Agents House — your Claude Code sessions, living in your house</title>
+<meta name="description" content="Every live Claude Code session becomes a pixel-art character doing chores in your house. Idle agents rest on the couch. Full-screen, LAN-accessible, zero config.">
+<meta property="og:title" content="Pixel Agents House">
+<meta property="og:description" content="Every live Claude Code session as a pixel-art character doing chores in your house.">
+<meta property="og:image" content="https://kbrovibes.github.io/pixel-agents-house/screenshots/01-main-floor.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='7' width='12' height='8' fill='%23c9a26b'/%3E%3Cpath d='M1 8 8 2l7 6z' fill='%234f6df5'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #f7f7f4; --panel: #ffffff; --text: #1f2937; --muted: #6b7280; --line: rgba(17,24,39,.08);
+    --accent: #4f6df5; --accent-ink: #3b55d6; --radius: 14px;
+    --shadow: 0 1px 2px rgba(17,24,39,.04), 0 12px 32px rgba(17,24,39,.08);
+    --font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent-ink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; color: var(--text); }
+  nav .brand svg { width: 22px; height: 22px; }
+  nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  nav ul a { color: var(--muted); }
+  nav ul a:hover { color: var(--text); text-decoration: none; }
+  header.hero { padding: 56px 0 32px; text-align: center; }
+  .eyebrow { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); background: rgba(79,109,245,.1); padding: 6px 12px; border-radius: 999px; }
+  h1 { font-size: clamp(34px, 5.2vw, 56px); line-height: 1.08; letter-spacing: -.03em; margin: 18px 0 14px; font-weight: 800; }
+  .lede { max-width: 640px; margin: 0 auto; font-size: 18px; color: var(--muted); }
+  .cta { display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid var(--line); background: #fff; color: var(--text); transition: transform .12s ease, box-shadow .12s ease; }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); box-shadow: var(--shadow); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .shot { margin: 40px auto 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: #fff; }
+  .shot img { display: block; width: 100%; height: auto; }
+  section { padding: 64px 0 8px; }
+  h2 { font-size: 28px; letter-spacing: -.02em; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 28px; max-width: 640px; }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .card h3 { margin: 0 0 6px; font-size: 16px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .card .k { display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; border-radius: 9px; background: rgba(79,109,245,.1); color: var(--accent-ink); font-weight: 700; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; background: #fafafa; }
+  tr:last-child td { border-bottom: 0; }
+  td code, pre code, p code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; background: #eef0f4; padding: 2px 6px; border-radius: 5px; }
+  .gallery { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  figure { margin: 0; }
+  figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  pre { background: #111827; color: #e5e7eb; padding: 18px 20px; border-radius: var(--radius); overflow: auto; font-size: 13.5px; line-height: 1.6; }
+  pre code { background: transparent; color: inherit; padding: 0; font-size: inherit; }
+  .steps { counter-reset: s; }
+  footer { margin-top: 64px; padding: 28px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  @media (max-width: 640px) { nav ul { display: none; } section { padding-top: 44px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="./">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="7" width="12" height="8" fill="#c9a26b"/><path d="M1 8 8 2l7 6z" fill="#4f6df5"/></svg>
+      Pixel Agents House
+    </a>
+    <ul>
+      <li><a href="app/?demo=8&amp;labels=1">Live demo</a></li>
+      <li><a href="https://github.com/kbrovibes/pixel-agents-house">GitHub</a></li>
+      <li><a href="https://kbrovibes.github.io/">All projects</a></li>
+      <li><a href="https://karthikrajan.info">Portfolio</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">For people who run a lot of Claude Code</span>
+    <h1>Your Claude Code sessions,<br>living in your house.</h1>
+    <p class="lede">Every live session becomes a pixel-art character with a chore. Edits mean cooking, Bash means mowing the lawn, reading means the den. Idle agents actually rest on the couch. Put it on a wall monitor and glance over.</p>
+    <div class="cta">
+      <a class="btn primary" href="app/?demo=8&amp;labels=1">Try the live demo</a>
+      <a class="btn" href="https://github.com/kbrovibes/pixel-agents-house">Get the code</a>
+    </div>
+    <div class="shot"><img src="screenshots/01-main-floor.png" alt="Main floor of the house with agents doing chores and room labels on" width="1920" height="993"></div>
+  </header>
+
+  <section id="why">
+    <h2>What makes it different</h2>
+    <p class="sub">A rebuild of the Pixel Agents idea for an always-on screen, not a sidebar.</p>
+    <div class="grid">
+      <div class="card"><span class="k">1</span><h3>Idle looks idle</h3><p>The status pill and the animation always agree. A session waiting on you sits on a sofa or sips coffee on the porch. Eight quiet minutes and it naps in a bed. Ended sessions walk out the front door.</p></div>
+      <div class="card"><span class="k">2</span><h3>Chores that mean something</h3><p>The tool the model is using picks the chore. Reads and searches head to the desk or the mailbox, edits go to the stove and workbench, Bash pushes the mower or takes out the trash, web searches end up on the couch with the remote.</p></div>
+      <div class="card"><span class="k">3</span><h3>A real floor plan</h3><p>Two floors of an actual house, transcribed from the architect's drawing at two feet per tile. The upper floor only appears when the main floor fills up and someone climbs the stairs.</p></div>
+      <div class="card"><span class="k">4</span><h3>Full screen, any device</h3><p>Exact-fit pixel scaling, a kiosk mode that hides the chrome, and a server that binds to your LAN so an iPad on the wifi can be the display.</p></div>
+      <div class="card"><span class="k">5</span><h3>Zero configuration</h3><p>It tails the transcript files Claude Code already writes. No hooks, no tokens, no build step. <code>npm install</code>, <code>npm start</code>, open the URL.</p></div>
+      <div class="card"><span class="k">6</span><h3>Click anyone</h3><p>Tap a character for its project, branch, current tool and file, last prompt, last reply, and a tool-count breakdown. Helpers spawned by a session show up as smaller characters.</p></div>
+    </div>
+  </section>
+
+  <section id="chores">
+    <h2>Who does what</h2>
+    <p class="sub">The server classifies what each session is doing; the client turns that into a chore and finds a free station in the house.</p>
+    <table>
+      <thead><tr><th>Session is…</th><th>Chores it may pick up</th></tr></thead>
+      <tbody>
+        <tr><td>Reading, grepping, browsing files</td><td>Desk in the den, armchair with a book, bookshelf, checking the mail, taking stock of the pantry</td></tr>
+        <tr><td>Editing or writing files</td><td>Cooking at the stove, chopping at the island, grilling on the patio, workbench in the garage, folding laundry, making the bed</td></tr>
+        <tr><td>Running shell commands</td><td>Mowing the lawn, taking out the trash, washing the car, fixing the furnace, laundry, vacuuming, raking leaves, scrubbing the bathroom</td></tr>
+        <tr><td>Searching the web</td><td>TV on the sofa, scrolling on the phone, a game of pool in the rec room</td></tr>
+        <tr><td>Thinking</td><td>Stays put with a “…” bubble</td></tr>
+        <tr><td>Waiting for you</td><td>Sofa, coffee, porch bench. After eight quiet minutes: a nap</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="shots">
+    <h2>Screenshots</h2>
+    <p class="sub">Taken from the built-in demo mode, which simulates a handful of sessions.</p>
+    <div class="gallery">
+      <figure><div class="shot" style="margin:0"><img src="screenshots/04-details.png" alt="Details card for a napping agent" loading="lazy"></div><figcaption>Kiwi is idle, so Kiwi is napping in the guest suite. The card says exactly that.</figcaption></figure>
+      <figure><div class="shot" style="margin:0"><img src="screenshots/02-both-floors.png" alt="Both floors shown side by side" loading="lazy"></div><figcaption>The upper floor slides in when someone heads upstairs.</figcaption></figure>
+      <figure><div class="shot" style="margin:0"><img src="screenshots/03-night-kiosk.png" alt="Night lighting in kiosk mode" loading="lazy"></div><figcaption>After 19:30 the lights come on. Kiosk mode hides every control.</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="start">
+    <h2>Run it at home</h2>
+    <p class="sub">Node 18 or newer, and Claude Code writing transcripts to <code>~/.claude/projects</code> (the default).</p>
+<pre><code>git clone https://github.com/kbrovibes/pixel-agents-house.git
+cd pixel-agents-house
+npm install
+npm start
+# → http://localhost:4321  and  http://&lt;your-lan-ip&gt;:4321 for any device on the wifi
+# wall monitor: http://localhost:4321/?kiosk=1&amp;labels=1  then press F</code></pre>
+    <p class="sub">No sessions running? <code>npm run demo</code> simulates ten. Details, configuration and the floor-plan format are in the <a href="https://github.com/kbrovibes/pixel-agents-house#readme">README</a>.</p>
+  </section>
+
+  <footer>
+    <span>Built by Karthik Rajan · <a href="https://github.com/kbrovibes">@kbrovibes</a></span>
+    <span><a href="https://kbrovibes.github.io/">All weekend projects</a> · <a href="https://karthikrajan.info">karthikrajan.info</a> · MIT</span>
+  </footer>
+</div>
+</body>
+</html>

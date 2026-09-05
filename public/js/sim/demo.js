@@ -1,5 +1,7 @@
 import { nameFor } from './names.js';
 
+const env = typeof process !== 'undefined' && process.env ? process.env : {};
+
 const PROJECTS = ['pixelagents', 'snobaddy', 'marketmath', 'opencourt', 'portfolio', 'finances', 'doodle-disaster', 'career-ops', 'expenses', 'ios', 'mac', 'profile'];
 const TITLES = ['Fix flaky login test', 'Add CSV export', 'Refactor renderer', 'Write README', 'Investigate memory leak', 'Migrate to ESM', 'Design landing page', 'Tune A* pathfinding', 'Ship dark mode', 'Clean up lint errors', 'Spike websocket reconnect', 'Polish onboarding'];
 const FILES = ['renderer.js', 'world.js', 'index.html', 'app.css', 'sessions.js', 'package.json', 'README.md', 'agents.js', 'ui.js', 'main.js'];
@@ -36,9 +38,9 @@ function detailFor(tool, rng) {
 }
 
 export function createDemoWatcher(opts = {}) {
-  const count = Math.max(1, Number(opts.count || process.env.PA_DEMO || 6));
-  const fast = opts.fast ?? process.env.PA_DEMO_FAST === '1';
-  const idleTimeoutMin = Number(process.env.PA_IDLE_TIMEOUT_MIN || 20);
+  const count = Math.max(1, Number(opts.count || env.PA_DEMO || 6));
+  const fast = opts.fast ?? env.PA_DEMO_FAST === '1';
+  const idleTimeoutMin = Number(env.PA_IDLE_TIMEOUT_MIN || 20);
   const stepMs = fast ? 3000 : 25000;
   const churnMs = fast ? 15000 : 90000;
   const rng = makeRng(42);

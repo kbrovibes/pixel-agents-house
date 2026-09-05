@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { WebSocketServer } from 'ws';
 import { createSessionWatcher } from './sessions.js';
-import { createDemoWatcher } from './demo.js';
+import { createDemoWatcher } from '../public/js/sim/demo.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -64,7 +64,7 @@ async function handle(req, res) {
   const pathname = url.split('?')[0];
   if (pathname === '/api/health') return sendJson(res, 200, { ok: true, uptime: process.uptime(), agents: watcher.getAgents().length, demo: !!watcher.demo });
   if (pathname === '/api/state') return sendJson(res, 200, { type: 'snapshot', ts: Date.now(), agents: watcher.getAgents(), config: config() });
-  if (pathname === '/api/floorplan') {
+  if (pathname === '/api/floorplan' || pathname === '/api/floorplan.json') {
     try {
       const text = await fsp.readFile(FLOORPLAN, 'utf8');
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache' });

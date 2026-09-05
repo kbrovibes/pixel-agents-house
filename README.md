@@ -1,5 +1,12 @@
 # Pixel Agents House
 
+[![Live demo](https://img.shields.io/badge/live%20demo-github%20pages-4f6df5)](https://kbrovibes.github.io/pixel-agents-house/app/?demo=8&labels=1)
+[![Project page](https://img.shields.io/badge/project%20page-kbrovibes.github.io-1f2937)](https://kbrovibes.github.io/pixel-agents-house/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
+![Main floor with agents doing chores](site/screenshots/01-main-floor.png)
+
+
 Every live [Claude Code](https://claude.com/claude-code) session becomes a pixel-art character living in your house. Agents that are reading code sit at a desk, agents that are editing cook dinner, agents running shell commands mow the lawn or take out the trash. Idle agents rest on the couch, sleepy ones nap in a bed, and sessions that end walk out the front door. It runs full-screen in any browser, is reachable from every device on your wifi, and has no build step.
 
 The house is the Greenville 4868B plan (main floor + upper floor). The upper floor appears automatically when the main floor gets crowded.
@@ -147,3 +154,15 @@ More detail:
 ## License
 
 MIT, see [LICENSE](LICENSE).
+
+## Screenshots
+
+| Idle means idle | Both floors | Night, kiosk mode |
+| --- | --- | --- |
+| ![Details card for a napping agent](site/screenshots/04-details.png) | ![Both floors](site/screenshots/02-both-floors.png) | ![Night kiosk](site/screenshots/03-night-kiosk.png) |
+
+## Links
+
+- Project page: <https://kbrovibes.github.io/pixel-agents-house/>
+- Live demo (simulated sessions, runs entirely in the browser): <https://kbrovibes.github.io/pixel-agents-house/app/?demo=8&labels=1>
+- More weekend projects: <https://kbrovibes.github.io/> · Portfolio: <https://karthikrajan.info>

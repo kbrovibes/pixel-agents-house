@@ -1,7 +1,7 @@
 {
   "name": "Pixel Agents House",
   "short_name": "Pixel Agents",
-  "start_url": "/?kiosk=1",
+  "start_url": "./?kiosk=1",
   "display": "fullscreen",
   "orientation": "landscape",
   "background_color": "#f4f4f1",
