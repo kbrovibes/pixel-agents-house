@@ -34,7 +34,7 @@ export function createUI(handlers = {}) {
     dot: $('liveDot'), count: $('agentCount'), floorsSeg: $('floorsSeg'),
     btnLabels: $('btnLabels'), btnFull: $('btnFull'), btnHide: $('btnHide'),
     roster: $('roster'), rosterToggle: $('rosterToggle'), rosterList: $('rosterList'), rosterEmpty: $('rosterEmpty'),
-    details: $('details'), stats: $('stats'), ticker: $('ticker'),
+    details: $('details'), stats: $('stats'), ticker: $('ticker'), addr: $('addr'),
   };
   let selected = null, lastSig = '', hidden = false, labels = false;
   let contextWindow = 200000;
@@ -60,7 +60,12 @@ export function createUI(handlers = {}) {
   function setLabels(b) { labels = !!b; els.btnLabels.classList.toggle('on', labels); }
   function setHidden(b) { hidden = !!b; document.body.classList.toggle('ui-hidden', hidden); }
   function setConnected(b) { els.dot.classList.toggle('live', !!b); els.dot.title = b ? 'Connected' : 'Disconnected'; }
-  function setConfig(cfg) { if (cfg?.contextWindow) contextWindow = cfg.contextWindow; }
+  function setConfig(cfg) {
+    if (cfg?.contextWindow) contextWindow = cfg.contextWindow;
+    const urls = [cfg?.urls?.named, ...(cfg?.urls?.lan || [])].filter(Boolean);
+    els.addr.innerHTML = urls.map(u => `<a href="${esc(u)}">${esc(u.replace(/^https?:\/\//, ''))}</a>`).join('<span class="sep">·</span>');
+    els.addr.hidden = urls.length === 0;
+  }
 
   // subtle event log in the legend instead of pop-up toasts
   function event(text) {

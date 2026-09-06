@@ -9,6 +9,8 @@ import { createSessionWatcher } from './sessions.js';
 import { createDemoWatcher } from '../public/js/sim/demo.js';
 import { advertise } from './bonjour.js';
 
+let bonjour = null;
+
 // 1M-context models are opted into via a "[1m]" suffix on the model name in ~/.claude/settings.json
 function defaultContextWindow() {
   try {
@@ -43,7 +45,8 @@ const MIME = {
 const watcher = process.env.PA_DEMO ? createDemoWatcher() : createSessionWatcher();
 
 function config() {
-  return { idleTimeoutMin: watcher.idleTimeoutMin, napAfterMin: NAP_AFTER_MIN, demo: !!watcher.demo, contextWindow: defaultContextWindow(), detail: process.env.PA_DETAIL || 'task' };
+  return { idleTimeoutMin: watcher.idleTimeoutMin, napAfterMin: NAP_AFTER_MIN, demo: !!watcher.demo, contextWindow: defaultContextWindow(), detail: process.env.PA_DETAIL || 'task',
+    urls: { named: bonjour ? bonjour.url : null, lan: lanUrls().map(u => u.replace(/:80$/, '')) } };
 }
 
 function sendJson(res, status, body) {
@@ -159,7 +162,6 @@ server.on('error', e => {
   process.exit(1);
 });
 
-let bonjour = null;
 server.listen(PORT, HOST, () => {
   if (process.env.PA_HOSTNAME) bonjour = advertise({ hostname: process.env.PA_HOSTNAME, port: PORT });
   banner();
