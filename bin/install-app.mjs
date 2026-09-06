@@ -30,6 +30,10 @@ async function portFree(p) {
   });
 }
 
+const uid = process.getuid();
+// stop a previous install first, otherwise its server makes the port look busy
+spawnSync('launchctl', ['bootout', `gui/${uid}`, plistPath], { stdio: 'ignore' });
+await new Promise(r => setTimeout(r, 800));
 const free = await portFree(port);
 if (!free) {
   console.log(`Port ${port} is busy or not allowed; falling back to 4321.`);
@@ -66,8 +70,6 @@ const plist = `<?xml version="1.0" encoding="UTF-8"?>
 
 fs.mkdirSync(path.dirname(plistPath), { recursive: true });
 fs.mkdirSync(path.dirname(logPath), { recursive: true });
-const uid = process.getuid();
-spawnSync('launchctl', ['bootout', `gui/${uid}`, plistPath], { stdio: 'ignore' });
 fs.writeFileSync(plistPath, plist);
 const boot = spawnSync('launchctl', ['bootstrap', `gui/${uid}`, plistPath], { encoding: 'utf8' });
 if (boot.status !== 0) {
