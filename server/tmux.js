@@ -4,9 +4,12 @@ import { execFile } from 'node:child_process';
 
 const REFRESH_MS = 10000;
 
+const SEP = '|||';   // tabs get sanitised to "_" by tmux outside a UTF-8 locale (e.g. under launchd)
+
 function run(cmd, args) {
+  const env = { ...process.env, LANG: process.env.LANG || 'en_US.UTF-8' };
   return new Promise((resolve) => {
-    execFile(cmd, args, { timeout: 4000 }, (err, stdout) => resolve(err ? '' : String(stdout)));
+    execFile(cmd, args, { timeout: 4000, env }, (err, stdout) => resolve(err ? '' : String(stdout)));
   });
 }
 
@@ -15,7 +18,7 @@ export function createTmuxIndex() {
   let timer = null;
 
   async function refresh() {
-    const panes = await run('tmux', ['list-panes', '-a', '-F', '#{session_name}\t#{window_name}\t#{pane_pid}\t#{pane_current_path}']);
+    const panes = await run('tmux', ['list-panes', '-a', '-F', `#{session_name}${SEP}#{window_name}${SEP}#{pane_pid}${SEP}#{pane_current_path}`]);
     if (!panes) { byCwd = new Map(); return; }
     const ps = await run('ps', ['-axo', 'pid=,ppid=,comm=']);
     const parent = new Map(), comm = new Map();
@@ -31,7 +34,7 @@ export function createTmuxIndex() {
     });
     const next = new Map();
     for (const line of panes.split('\n')) {
-      const [session, window, pid, cwd] = line.split('\t');
+      const [session, window, pid, cwd] = line.split(SEP);
       if (!cwd) continue;
       const entry = { session, window, live: hasClaude(Number(pid)) };
       const prev = next.get(cwd);
