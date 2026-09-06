@@ -10,31 +10,29 @@
 <meta name="theme-color" content="#f4f4f1">
 <title>Pixel Agents House</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='7' width='12' height='8' fill='%23c9a26b'/%3E%3Cpath d='M1 8 8 2l7 6z' fill='%234f6df5'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="icons/favicon-64.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 <canvas id="world" aria-label="Pixel Agents House"></canvas>
 
 <div id="chrome">
-  <header id="topbar">
-    <div class="brand">
-      <span class="dot" id="liveDot" title="Disconnected"></span>
-      <h1>Pixel Agents House</h1>
-      <span class="count" id="agentCount">0 agents</span>
+  <div id="brandpill" class="hud">
+    <span class="dot" id="liveDot" title="Disconnected"></span>
+    <h1>Pixel Agents House</h1>
+    <span class="count" id="agentCount">0 agents</span>
+  </div>
+  <div id="actions" class="hud">
+    <div class="seg" id="floorsSeg" role="group" aria-label="Floors">
+      <button type="button" data-mode="auto" class="on" title="Main floor, upper floor as picture-in-picture when in use (0)">Auto</button>
+      <button type="button" data-mode="main" title="Main floor only (1)">Main</button>
+      <button type="button" data-mode="split" title="Both floors side by side (2)">Split</button>
     </div>
-    <div class="clock" id="clock">--:--</div>
-    <div class="actions">
-      <div class="seg" id="floorsSeg" role="group" aria-label="Floors">
-        <button type="button" data-mode="auto" class="on">Auto</button>
-        <button type="button" data-mode="main">Main</button>
-        <button type="button" data-mode="both">Both</button>
-      </div>
-      <button type="button" class="btn" id="btnLabels" title="Room labels (L)">Labels</button>
-      <button type="button" class="btn" id="btnFull" title="Fullscreen (F)">Fullscreen</button>
-      <button type="button" class="btn" id="btnHide" title="Hide UI (H)">Hide UI</button>
-    </div>
-  </header>
+    <button type="button" class="btn" id="btnLabels" title="Room labels (L)">Labels</button>
+    <button type="button" class="btn" id="btnFull" title="Fullscreen (F)">Fullscreen</button>
+    <button type="button" class="btn" id="btnHide" title="Hide UI (H)">Hide UI</button>
+  </div>
 
   <aside id="roster">
     <div class="panel-head">
@@ -47,7 +45,10 @@
 
   <section id="details" hidden></section>
 
-  <div id="toasts" aria-live="polite"></div>
+  <aside id="legend">
+    <div id="stats"></div>
+    <div id="ticker"></div>
+  </aside>
 </div>
 
 <script type="module" src="js/main.js"></script>

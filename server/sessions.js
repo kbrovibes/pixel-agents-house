@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import chokidar from 'chokidar';
 import { nameFor } from '../public/js/sim/names.js';
+import { createTmuxIndex } from './tmux.js';
 
 const SEED_TAIL_BYTES = 512 * 1024;
 const TOOL_RESULT_DEBOUNCE_MS = 3000;
@@ -72,7 +73,7 @@ function newSession(file, sessionId, agentId) {
     parentId: agentId ? sessionId : null,
     offset: 0, partial: '',
     cwd: null, gitBranch: null, model: null, version: null, permissionMode: null, title: null,
-    firstPrompt: null, lastPrompt: '', lastText: '',
+    firstPrompt: null, lastPrompt: '', lastText: '', contextTokens: 0, outputTokens: 0,
     startedAt: null, lastActivityAt: null, lastLineAt: Date.now(),
     turns: 0, toolCounts: {},
     pending: null, lastTool: null, lastDetail: '', lastKind: null,
@@ -95,6 +96,9 @@ function firstTextBlock(content) {
 }
 
 export function createSessionWatcher(opts = {}) {
+  const fullDetail = (opts.detail || process.env.PA_DETAIL || 'task') === 'full';
+  const tmuxIndex = opts.tmux === false ? null : createTmuxIndex();
+
   const projectsDir = opts.projectsDir || process.env.PA_PROJECTS_DIR || path.join(os.homedir(), '.claude', 'projects');
   const idleTimeoutMin = Number(opts.idleTimeoutMin || process.env.PA_IDLE_TIMEOUT_MIN || 20);
   const idleTimeoutMs = idleTimeoutMin * 60 * 1000;
@@ -150,6 +154,12 @@ export function createSessionWatcher(opts = {}) {
     }
     const msg = j.message || {};
     if (msg.model) s.model = msg.model;
+    if (msg.usage && typeof msg.usage === 'object') {
+      const u = msg.usage;
+      const ctx = (u.input_tokens || 0) + (u.cache_read_input_tokens || 0) + (u.cache_creation_input_tokens || 0);
+      if (ctx > 0) s.contextTokens = ctx;
+      s.outputTokens = (s.outputTokens || 0) + (u.output_tokens || 0);
+    }
     const content = msg.content;
 
     if (j.type === 'assistant') {
@@ -348,9 +358,12 @@ export function createSessionWatcher(opts = {}) {
       status,
       activity,
       tool: tool || null,
-      toolDetail: s.pending ? s.pending.detail : s.lastDetail,
-      lastPrompt: s.lastPrompt,
-      lastText: s.lastText,
+      toolDetail: fullDetail ? (s.pending ? s.pending.detail : s.lastDetail) : '',
+      lastPrompt: fullDetail ? s.lastPrompt : '',
+      lastText: fullDetail ? s.lastText : '',
+      tmux: tmuxIndex ? tmuxIndex.lookup(s.cwd) : null,
+      contextTokens: s.contextTokens || 0,
+      outputTokens: s.outputTokens || 0,
       startedAt: s.startedAt || s.lastLineAt,
       lastActivityAt: Math.max(s.lastActivityAt || 0, s.lastLineAt),
       turns: s.turns,
@@ -410,6 +423,7 @@ export function createSessionWatcher(opts = {}) {
   }
 
   function start() {
+    tmuxIndex?.start();
     if (watcher) return;
     console.log(`[sessions] watching ${projectsDir} (idle timeout ${idleTimeoutMin} min)`);
     watcher = chokidar.watch(projectsDir, {
@@ -427,6 +441,7 @@ export function createSessionWatcher(opts = {}) {
   }
 
   async function stop() {
+    tmuxIndex?.stop();
     if (tickTimer) clearInterval(tickTimer);
     if (broadcastTimer) clearTimeout(broadcastTimer);
     tickTimer = broadcastTimer = null;

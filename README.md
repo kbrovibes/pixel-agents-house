@@ -31,12 +31,28 @@ Open <http://localhost:4321>. Start a Claude Code session anywhere and a charact
 - Kiosk mode (hides all UI chrome until the mouse moves): <http://localhost:4321/?kiosk=1>.
 - No sessions running? Try `npm run demo` for ten fake agents.
 
+### One command install (macOS)
+
+```bash
+npm run install-app
+```
+
+This registers a launchd agent that starts the server at login and keeps it alive, serves on port 80, and
+advertises the name **pixelagents.local** on your wifi through Bonjour. From then on, on the Mac and on any
+phone, tablet or laptop on the same network, just open:
+
+**<http://pixelagents.local>**
+
+Options: `npm run install-app -- --name house --port 8080` → `http://house.local:8080`. Remove everything with
+`npm run uninstall-app`. Logs go to `~/Library/Logs/pixel-agents-house.log`. If macOS asks whether `node` may
+accept incoming connections, allow it. Windows devices need Bonjour (bundled with iTunes) to resolve `.local` names.
+
 URL parameters, handy for a monitor that is always on:
 
 | Parameter | Effect |
 | --- | --- |
 | `?kiosk=1` | Hide the UI chrome; it reappears while the pointer moves |
-| `?floors=main` / `?floors=both` / `?floors=auto` | Force which floors are shown (auto shows the upper floor only while someone is up there) |
+| `?floors=auto` / `?floors=main` / `?floors=split` | Auto shows the main floor edge to edge and, while someone is upstairs, cycles between the floors (10 s main, 5 s upper) with the other floor as a picture-in-picture inset. Split shows both side by side |
 | `?labels=1` | Room labels on |
 | `?night=1` / `?night=0` | Force night or day lighting (default follows the clock: night before 06:30 and after 19:30) |
 
@@ -108,6 +124,8 @@ All settings are environment variables.
 | `PA_IDLE_TIMEOUT_MIN` | `20` | Minutes without transcript activity before a session is considered ended and its agent leaves |
 | `PA_DEMO` | unset | Number of fake agents to simulate instead of reading transcripts (`npm run demo` sets 10) |
 | `PA_DEMO_FAST` | unset | With `PA_DEMO`, cycle fake activity every few seconds |
+| `PA_HOSTNAME` | unset | Advertise `http://<name>.local` on the LAN via Bonjour (macOS). `npm run install-app` sets this |
+| `PA_DETAIL` | `task` | What the browser gets to see. `task` shows only what kind of work is happening (editing, running a command…) plus the tmux session name; `full` also sends file names, commands, the last prompt and the last reply |
 | `PA_INCLUDE_HEADLESS` | unset | Set to `1` to also show headless `claude -p` sessions (SDK / observer runs). Hidden by default because they are usually not interactive work |
 
 ## Controls
@@ -117,11 +135,12 @@ All settings are environment variables.
 | `F` | Toggle fullscreen |
 | `H` | Hide / show the UI chrome |
 | `L` | Toggle room labels |
-| `1` / `2` / `0` | Show main floor only / both floors / auto (upper floor appears when in use) |
+| `1` / `2` / `0` | Main floor only / both floors side by side / auto (edge-to-edge with picture-in-picture cycling when the upper floor is in use) |
 | `Esc` | Deselect agent, close details panel |
 | Click or tap a character | Select it and open its details (project, branch, current tool, last prompt, last reply, tool counts) |
 | Roster rows | Same as clicking the character |
 | Top-right buttons | Floors, Labels, Fullscreen, Hide UI (all work with touch) |
+| Legend (bottom-left) | Live counts, context-window usage (average and peak, against the 200k or 1M window), tool calls in the last five minutes, helpers, tmux sessions, and a quiet ticker of arrivals and departures |
 
 ## How it works
 

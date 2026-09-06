@@ -7,6 +7,7 @@
   "background_color": "#f4f4f1",
   "theme_color": "#f4f4f1",
   "icons": [
-    { "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f4f4f1'/%3E%3Crect x='10' y='30' width='44' height='26' fill='%23c9a26b'/%3E%3Cpath d='M6 32 32 10l26 22z' fill='%234f6df5'/%3E%3Crect x='28' y='40' width='8' height='16' fill='%23374151'/%3E%3C/svg%3E", "sizes": "64x64", "type": "image/svg+xml" }
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }

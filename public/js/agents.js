@@ -2,8 +2,11 @@
 import { findPath, findStation, nearestWalkable, CHORES_BY_ACTIVITY } from './world.js';
 import { TILE, makePalette, choreFx } from './sprites.js';
 
-const SPEED = 3.2;          // tiles / s
-const SPEED_SMALL = 3.8;
+const SPEED = 2.0;          // tiles / s, before temperament
+const SPEED_SMALL = 2.3;
+const COMMIT_MS = { calm: 180000, normal: 110000, busy: 45000 };   // how long an agent sticks with a chore before switching
+const STROLL_MS = { calm: 70000, normal: 120000, busy: 200000 };   // how often a resting agent wanders to another spot
+const VERB = { read: 'reading', write: 'editing', bash: 'running a command', web: 'browsing the web', agent: 'delegating', error: 'hit a snag', think: 'thinking' };
 const DEBOUNCE_MS = 2500;   // activity must be stable this long before the chore changes
 const BUBBLE_MS = 6000;
 const FADE_S = 0.6;
@@ -59,7 +62,11 @@ class Agent {
     this.restBubbled = false;
     this.lastTool = null;
     this.lastDetail = null;
-    this.speedMul = 0.88 + ((parseInt(this.id.replace(/[^0-9a-f]/gi, '').slice(-4) || '0', 16) % 100) / 100) * 0.24;
+    const h = parseInt(this.id.replace(/[^0-9a-f]/gi, '').slice(-4) || '0', 16);
+    this.temperament = ['calm', 'normal', 'normal', 'busy'][h % 4];
+    this.speedMul = { calm: 0.7, normal: 0.95, busy: 1.35 }[this.temperament] + ((h % 100) / 100) * 0.15;
+    this.committedUntil = 0;
+    this.nextStrollAt = 0;
     this.holdUntil = mgr.nextArrivalSlot();
     this.alpha = 0;
     this.updatePx();
@@ -84,12 +91,12 @@ class Agent {
     this.info = info;
     if (info.status === 'working' && (info.tool !== this.lastTool || info.toolDetail !== this.lastDetail)) {
       this.lastTool = info.tool; this.lastDetail = info.toolDetail;
-      if (info.tool) {
-        const text = info.activity === 'error' ? `⚠ ${info.tool}` : (info.toolDetail ? `${info.tool} · ${info.toolDetail}` : info.tool);
+      if (info.tool && info.activity !== prev.activity) {
+        const text = info.activity === 'error' ? `⚠ ${VERB.error}` : (VERB[info.activity] || info.activity);
         this.bubble = { text, until: Date.now() + BUBBLE_MS };
       }
-    } else if (info.activity === 'error' && prev.activity !== 'error' && info.tool) {
-      this.bubble = { text: `⚠ ${info.tool}`, until: Date.now() + BUBBLE_MS };
+    } else if (info.activity === 'error' && prev.activity !== 'error') {
+      this.bubble = { text: `⚠ ${VERB.error}`, until: Date.now() + BUBBLE_MS };
     }
     if (info.status !== 'idle') this.restBubbled = false;
   }
@@ -114,8 +121,11 @@ class Agent {
     // a freshly arrived agent that is only thinking heads for a seat first instead of pondering on the porch
     if (want === 'think' && !this.station) want = 'idle';
     if (want !== this.pendingKey) { this.pendingKey = want; this.pendingSince = now; }
-    if (want === this.key) return;
+    if (want === this.key) { this.maybeStroll(now); return; }
     const immediate = want === 'gone' || this.key === null;
+    const restWanted = REST_KEYS.has(want) || want === 'think';
+    // working agents stick with their current chore for a while: fewer laps around the house
+    if (!immediate && !restWanted && this.station && this.state === 'chore' && now < this.committedUntil) return;
     if (!immediate && now - this.pendingSince < DEBOUNCE_MS) {
       // stop chore animation the moment the session goes quiet; the walk to the couch follows after the debounce
       if ((REST_KEYS.has(want) || want === 'think') && this.state === 'chore' && this.pose === 'work') { this.pose = 'stand'; this.fx = null; this.stopSweep(); this.path = []; }
@@ -162,6 +172,8 @@ class Agent {
     this.station = st;
     this.chore = st.chore;
     this.fx = null;
+    this.committedUntil = now + COMMIT_MS[this.temperament] * (0.7 + Math.random() * 0.6);
+    this.nextStrollAt = now + STROLL_MS[this.temperament] * (0.6 + Math.random() * 0.8);
     this.walkToStation();
   }
 
@@ -184,6 +196,7 @@ class Agent {
   arriveAtStation() {
     const st = this.station;
     if (!st) return;
+    this.strolling = false;
     this.x = st.x; this.y = st.y;
     if (st.facing) this.facing = st.facing;
     const rest = REST_KEYS.has(this.key);
@@ -293,6 +306,20 @@ class Agent {
     this.pose = 'walk';
   }
 
+  // resting agents occasionally get up and amble to another rest spot
+  maybeStroll(now) {
+    if (this.key !== 'idle' || this.state !== 'resting' || now < this.nextStrollAt) return;
+    this.nextStrollAt = now + STROLL_MS[this.temperament] * (0.6 + Math.random() * 0.8);
+    const st = findStation(this.world, choresForKey('idle'), this.floorId, this.cell);
+    if (!st || st === this.station || st.occupant) return;
+    this.releaseStation();
+    st.occupant = this.id;
+    this.station = st;
+    this.chore = st.chore;
+    this.strolling = true;
+    this.walkToStation();
+  }
+
   stopSweep() { this.sweep = null; }
 
   advanceSweep() {
@@ -348,7 +375,7 @@ class Agent {
     this.decide(now);
     if (this.state === 'gone') return;
 
-    const speed = (this.small ? SPEED_SMALL : SPEED) * this.speedMul;
+    const speed = (this.small ? SPEED_SMALL : SPEED) * this.speedMul * (this.strolling ? 0.6 : 1);
     if (this.path.length) {
       this.pose = 'walk';
       this.moveAlong(dt, speed);

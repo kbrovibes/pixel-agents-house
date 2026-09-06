@@ -7,6 +7,15 @@ import { fileURLToPath } from 'node:url';
 import { WebSocketServer } from 'ws';
 import { createSessionWatcher } from './sessions.js';
 import { createDemoWatcher } from '../public/js/sim/demo.js';
+import { advertise } from './bonjour.js';
+
+// 1M-context models are opted into via a "[1m]" suffix on the model name in ~/.claude/settings.json
+function defaultContextWindow() {
+  try {
+    const cfg = JSON.parse(fs.readFileSync(path.join(os.homedir(), '.claude', 'settings.json'), 'utf8'));
+    return /\[1m\]/i.test(String(cfg.model || '')) ? 1000000 : 200000;
+  } catch { return 200000; }
+}
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -34,7 +43,7 @@ const MIME = {
 const watcher = process.env.PA_DEMO ? createDemoWatcher() : createSessionWatcher();
 
 function config() {
-  return { idleTimeoutMin: watcher.idleTimeoutMin, napAfterMin: NAP_AFTER_MIN, demo: !!watcher.demo };
+  return { idleTimeoutMin: watcher.idleTimeoutMin, napAfterMin: NAP_AFTER_MIN, demo: !!watcher.demo, contextWindow: defaultContextWindow(), detail: process.env.PA_DETAIL || 'task' };
 }
 
 function sendJson(res, status, body) {
@@ -132,6 +141,7 @@ function banner() {
     `  Local:     http://localhost:${PORT}`,
     ...lanUrls().map(u => `  Network:   ${u}`),
     `  Bonjour:   http://${host}.local:${PORT}`,
+    ...(bonjour ? [`  Named:     ${bonjour.url}`] : []),
     '',
     `  Mode:      ${watcher.demo ? `demo (${process.env.PA_DEMO} fake agents)` : `watching ${watcher.projectsDir}`}`,
     `  Idle:      sessions vanish after ${watcher.idleTimeoutMin} min of silence`,
@@ -149,7 +159,9 @@ server.on('error', e => {
   process.exit(1);
 });
 
+let bonjour = null;
 server.listen(PORT, HOST, () => {
+  if (process.env.PA_HOSTNAME) bonjour = advertise({ hostname: process.env.PA_HOSTNAME, port: PORT });
   banner();
   watcher.start();
 });
