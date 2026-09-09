@@ -83,7 +83,8 @@ async function handle(req, res) {
   if (pathname === '/api/state') return sendJson(res, 200, { type: 'snapshot', ts: Date.now(), agents: watcher.getAgents(), config: config() });
   if (pathname === '/ca.crt') {
     if (!tls) { res.writeHead(404); res.end('HTTPS is not enabled'); return; }
-    res.writeHead(200, { 'Content-Type': 'application/x-x509-ca-cert', 'Content-Disposition': 'attachment; filename="pixel-agents-ca.crt"', 'Cache-Control': 'no-cache' });
+    // No Content-Disposition: with "attachment" iOS Safari files it under Downloads instead of offering the profile prompt
+    res.writeHead(200, { 'Content-Type': 'application/x-x509-ca-cert', 'Cache-Control': 'no-cache' });
     res.end(tls.ca);
     return;
   }
