@@ -3,11 +3,13 @@ import { createRenderer } from './renderer.js';
 import { AgentManager } from './agents.js';
 import { createUI } from './ui.js';
 import { connect } from './net.js';
+import { initPWA } from './pwa.js';
 
 const params = new URLSearchParams(location.search);
 const CYCLE = { main: 10000, upper: 5000 };   // camera schedule when both floors are in use
 
 async function boot() {
+  initPWA(document.getElementById('btnInstall'));
   const plan = await (await fetch('api/floorplan.json')).json();
   const world = buildWorld(plan);
   const canvas = document.getElementById('world');

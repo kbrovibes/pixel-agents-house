@@ -73,6 +73,7 @@ Pixel Agents House
 - **Bonjour name**: `http://<your-hostname>.local:4321` works from Apple devices and most others without knowing the IP. Your hostname is `hostname` in a terminal.
 - **macOS firewall**: the first time you start the server macOS may ask whether `node` can accept incoming connections. Click Allow. If you dismissed it, enable node under System Settings → Network → Firewall → Options.
 - **iPad / iPhone full screen**: open the URL in Safari, tap Share → Add to Home Screen. The saved icon launches without an address bar.
+- **Install as an app (Chrome / Edge)**: the page is a PWA. Click the install icon at the right end of the address bar, or the **Install** button in the top-right toolbar when the browser offers it. Chrome only installs from `http://localhost` or an `https://` origin, so from another machine over plain `http://pixelagents.local` the button never appears. Either install on the Mac that runs the server via `http://localhost`, or on the other device open `chrome://flags/#unsafely-treat-insecure-origin-as-secure`, add `http://pixelagents.local` (or the IP URL), relaunch, and install from there. The installed app keeps working offline from the last snapshot until the server is back.
 - **Monitor kiosk**: open the kiosk URL in a browser, press `F`.
 
 ### Run it permanently
