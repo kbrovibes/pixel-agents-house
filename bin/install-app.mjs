@@ -40,6 +40,7 @@ if (!free) {
   port = 4321;
 }
 const url = `http://${name}.local${port === 80 ? '' : `:${port}`}`;
+const secure = `https://${name}.local${port === 80 ? '' : `:${port + 1}`}`;
 const pathEnv = ['/opt/homebrew/bin', '/usr/local/bin', '/usr/bin', '/bin', '/usr/sbin', '/sbin'].join(':');
 const plist = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -89,6 +90,7 @@ console.log(`
   Open:      ${url}
   Any device on the wifi: ${url}${ip ? `  (or http://${ip}${port === 80 ? '' : `:${port}`})` : ''}
   Kiosk:     ${url}/?kiosk=1&labels=1
+  Secure:    ${secure}  (trust ${url}/ca.crt on each device first, see README)
 
   Status:    ${healthy ? 'running' : `not responding yet, check ${logPath}`}
   Logs:      ${logPath}

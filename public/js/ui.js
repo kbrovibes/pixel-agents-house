@@ -62,7 +62,7 @@ export function createUI(handlers = {}) {
   function setConnected(b) { els.dot.classList.toggle('live', !!b); els.dot.title = b ? 'Connected' : 'Disconnected'; }
   function setConfig(cfg) {
     if (cfg?.contextWindow) contextWindow = cfg.contextWindow;
-    const urls = [cfg?.urls?.named, ...(cfg?.urls?.lan || [])].filter(Boolean);
+    const urls = [cfg?.urls?.secure, cfg?.urls?.named, ...(cfg?.urls?.lan || [])].filter(Boolean);
     els.addr.innerHTML = urls.map(u => `<a href="${esc(u)}">${esc(u.replace(/^https?:\/\//, ''))}</a>`).join('<span class="sep">·</span>');
     els.addr.hidden = urls.length === 0;
   }

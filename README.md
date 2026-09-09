@@ -73,8 +73,19 @@ Pixel Agents House
 - **Bonjour name**: `http://<your-hostname>.local:4321` works from Apple devices and most others without knowing the IP. Your hostname is `hostname` in a terminal.
 - **macOS firewall**: the first time you start the server macOS may ask whether `node` can accept incoming connections. Click Allow. If you dismissed it, enable node under System Settings → Network → Firewall → Options.
 - **iPad / iPhone full screen**: open the URL in Safari, tap Share → Add to Home Screen. The saved icon launches without an address bar.
-- **Install as an app (Chrome / Edge)**: the page is a PWA. Click the install icon at the right end of the address bar, or the **Install** button in the top-right toolbar when the browser offers it. Chrome only installs from `http://localhost` or an `https://` origin, so from another machine over plain `http://pixelagents.local` the button never appears. Either install on the Mac that runs the server via `http://localhost`, or on the other device open `chrome://flags/#unsafely-treat-insecure-origin-as-secure`, add `http://pixelagents.local` (or the IP URL), relaunch, and install from there. The installed app keeps working offline from the last snapshot until the server is back.
+- **Install as an app (Chrome / Edge)**: the page is a PWA. Click the install icon at the right end of the address bar, or the **Install** button in the top-right toolbar when the browser offers it. Chrome only installs from `http://localhost` or an `https://` origin, so from another device use the HTTPS address after trusting the CA once (next section). The installed app keeps working offline from the last snapshot until the server is back.
 - **Monitor kiosk**: open the kiosk URL in a browser, press `F`.
+
+### HTTPS and installing from an iPad or another device
+
+Browsers only treat `http://localhost` as secure, so the offline service worker and Chrome's install prompt need HTTPS everywhere else. The server therefore also listens on HTTPS (port 443 when the HTTP port is 80, otherwise the HTTP port plus one; override with `PA_TLS_PORT`, disable with `PA_TLS=0`). On first start it creates a local certificate authority in `~/.pixelagents/tls` and issues a certificate for `localhost`, `<name>.local`, your hostname and your LAN IP, re-issuing automatically when those change. Each device has to trust the CA once:
+
+1. **iPad / iPhone**: open `http://pixelagents.local/ca.crt` in Safari and allow the download. Settings → Profile Downloaded → Install. Then Settings → General → About → Certificate Trust Settings → enable full trust for *Pixel Agents House Local CA*. Open `https://pixelagents.local`, Share → Add to Home Screen.
+2. **Mac (Chrome / Safari)**: `security add-trusted-cert -r trustRoot -k ~/Library/Keychains/login.keychain-db ~/.pixelagents/tls/ca.crt`, then restart the browser and open `https://pixelagents.local`. Chrome shows the install icon in the address bar.
+3. **Android**: download `http://pixelagents.local/ca.crt`, then Settings → Security → Encryption & credentials → Install a certificate → CA certificate.
+4. **Windows**: download the file, double-click → Install Certificate → Local Machine → Trusted Root Certification Authorities.
+
+Only devices with the CA installed will trust the address. Deleting `~/.pixelagents/tls` starts over with a new CA, which every device would need to trust again.
 
 ### Run it permanently
 
