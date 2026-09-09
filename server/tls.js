@@ -19,6 +19,12 @@ function openssl(args, cwd) {
   return execFileSync('openssl', args, { cwd, stdio: ['ignore', 'pipe', 'pipe'], encoding: 'utf8' });
 }
 
+// iOS Safari only recognizes application/x-x509-ca-cert as an installable profile when the body
+// is DER, not PEM; a PEM body with that content type just downloads as a file.
+function pemToDer(pemPath, cwd) {
+  return execFileSync('openssl', ['x509', '-in', pemPath, '-outform', 'der'], { cwd, stdio: ['ignore', 'pipe', 'pipe'] });
+}
+
 function certNotAfter(certPath) {
   try {
     const out = openssl(['x509', '-noout', '-enddate', '-in', certPath]);
@@ -84,7 +90,7 @@ export function ensureCerts({ dir = defaultTlsDir(), dns, ips, log = console.log
       makeLeaf(dir, dns, ips);
       log(`[tls] issued certificate for ${[...dns, ...ips].join(', ')}`);
     }
-    return { key: fs.readFileSync(key), cert: fs.readFileSync(crt), ca: fs.readFileSync(caCrt), caPath: caCrt };
+    return { key: fs.readFileSync(key), cert: fs.readFileSync(crt), ca: fs.readFileSync(caCrt), caDer: pemToDer(caCrt, dir), caPath: caCrt };
   } catch (e) {
     log(`[tls] certificate setup failed, HTTPS disabled: ${e.stderr || e.message}`);
     return null;

@@ -83,9 +83,11 @@ async function handle(req, res) {
   if (pathname === '/api/state') return sendJson(res, 200, { type: 'snapshot', ts: Date.now(), agents: watcher.getAgents(), config: config() });
   if (pathname === '/ca.crt') {
     if (!tls) { res.writeHead(404); res.end('HTTPS is not enabled'); return; }
-    // No Content-Disposition: with "attachment" iOS Safari files it under Downloads instead of offering the profile prompt
+    // DER, not PEM: iOS Safari only offers the profile-install prompt for application/x-x509-ca-cert
+    // when the body is DER-encoded. A PEM body with that content type just downloads as a file.
+    // No Content-Disposition either — "attachment" also makes Safari file it under Downloads.
     res.writeHead(200, { 'Content-Type': 'application/x-x509-ca-cert', 'Cache-Control': 'no-cache' });
-    res.end(tls.ca);
+    res.end(tls.caDer);
     return;
   }
   if (pathname === '/api/floorplan' || pathname === '/api/floorplan.json') {
